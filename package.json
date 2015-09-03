@@ -10,19 +10,19 @@
   "devDependencies": {
     "broccoli": "0.16.7",
     "broccoli-babel-transpiler": "5.4.5",
-    "broccoli-cjsx": "0.0.2",
     "broccoli-clean-css": "1.0.0",
     "broccoli-cli": "1.0.0",
-    "broccoli-coffee": "0.4.1",
     "broccoli-concat": "0.0.13",
     "broccoli-funnel": "0.2.8",
     "broccoli-merge-trees": "0.2.3",
+    "broccoli-react": "0.7.1",
     "broccoli-stylus": "3.0.0",
     "broccoli-uglify-js": "0.1.3",
     "font-awesome": "4.4.0",
     "lodash": "3.10.1",
     "nib": "1.1.0",
     "react": "0.13.3",
-    "react-router": "0.13.3"
+    "react-router": "0.13.3",
+    "requirejs": "2.1.20"
   }
 }

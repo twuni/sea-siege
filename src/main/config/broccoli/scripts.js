@@ -1,6 +1,5 @@
 const babel = require('broccoli-babel-transpiler');
-const cjsx = require('broccoli-cjsx');
-const coffee = require('broccoli-coffee');
+const react = require('broccoli-react');
 const concat = require('broccoli-concat');
 const merge = require('broccoli-merge-trees');
 const uglify = require('broccoli-uglify-js');
@@ -13,15 +12,12 @@ var tree;
 tree = 'src/main/scripts';
 
 tree = concat(tree, {
-  inputFiles: ['main.cjsx'],
-  outputFile: '/main.cjsx'
+  inputFiles: ['main.jsx'],
+  outputFile: '/main.jsx'
 });
 
-tree = cjsx(tree);
-tree = coffee(tree, {bare: true});
-tree = babel(tree, {
-  modules: 'amd'
-});
+tree = react(tree, {transform: {harmony: true}});
+tree = babel(tree);
 tree = merge([dependencies, modules, tree]);
 
 tree = concat(tree, {
@@ -33,6 +29,6 @@ tree = concat(tree, {
   outputFile: '/' + pkg.name + '.js'
 });
 
-tree = uglify(tree);
+//tree = uglify(tree);
 
 module.exports = tree;
