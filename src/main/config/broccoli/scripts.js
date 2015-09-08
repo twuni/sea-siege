@@ -12,8 +12,8 @@ var tree;
 tree = 'src/main/scripts';
 
 tree = concat(tree, {
-  inputFiles: ['main.jsx'],
-  outputFile: '/main.jsx'
+  inputFiles: ['main.js'],
+  outputFile: '/main.js'
 });
 
 tree = react(tree, {transform: {harmony: true}});

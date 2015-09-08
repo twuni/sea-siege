@@ -1,6 +1,18 @@
-import Component from '../core/component';
+import Component from '../component';
 
 class CardFooter extends Component {
+
+  static get className() {
+    return 'card-footer-component';
+  }
+
+  static get propTypes() {
+    return Component.withPropTypes({
+      artist: React.PropTypes.string.isRequired,
+      power: React.PropTypes.string,
+      toughness: React.PropTypes.string
+    });
+  }
 
   renderPowerAndToughness() {
     if(this.props.power) {
@@ -8,7 +20,7 @@ class CardFooter extends Component {
         return <span className='creature-stats'>
           <span className='power'>{this.props.power}</span>
           <span className='toughness'>{this.props.toughness}</span>
-        </span>;
+        </span>
       }
     }
     return undefined;
@@ -16,20 +28,11 @@ class CardFooter extends Component {
 
   render() {
     return <footer className={this.classNames}>
-      <span>{this.props.artist}</span>
+      <span className='artist'>{this.props.artist}</span>
       {this.renderPowerAndToughness()}
-    </footer>;
+    </footer>
   }
 
 }
-
-Component.mergeWith(CardFooter, {
-  className: 'card-footer-component',
-  propTypes: Component.withPropTypes({
-    artist: React.PropTypes.string.isRequired,
-    power: React.PropTypes.string,
-    toughness: React.PropTypes.string
-  })
-});
 
 export default CardFooter;

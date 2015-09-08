@@ -1,8 +1,14 @@
-import Route from './core/route';
+import Route from './route';
 
 import Card from './card';
+import Icon from './icon';
+import IconStack from './icon-stack';
 
 class Main extends Route {
+
+  static get className() {
+    return 'main-route';
+  }
 
   get sample() {
     return {
@@ -10,9 +16,9 @@ class Main extends Route {
       mainType: 'Creature',
       secondaryType: 'Human',
       cost: {
-        blue: 1,
+        blue: 2,
         green: 1,
-        any: 1
+        any: 4
       },
       rarity: 'uncommon',
       edition: 'TWU',
@@ -33,9 +39,5 @@ class Main extends Route {
   }
 
 }
-
-Route.mergeWith(Main, {
-  className: 'main-route'
-});
 
 export default Main;

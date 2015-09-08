@@ -1,6 +1,21 @@
-import Component from '../core/component';
+import Component from '../component';
 
 class CardOracle extends Component {
+
+  static get className() {
+    return 'card-oracle-component';
+  }
+
+  static get propTypes() {
+    return Component.withPropTypes({
+      description: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.element
+      ]),
+      quote: React.PropTypes.string,
+      author: React.PropTypes.string
+    });
+  }
 
   renderQuote() {
     if(this.props.quote) {
@@ -8,11 +23,11 @@ class CardOracle extends Component {
         return <footer>
           <blockquote>{this.props.quote}</blockquote>
           <author>{this.props.author}</author>
-        </footer>;
+        </footer>
       }
       return <footer>
         <blockquote>{this.props.quote}</blockquote>
-      </footer>;
+      </footer>
     }
     return undefined;
   }
@@ -21,18 +36,9 @@ class CardOracle extends Component {
     return <section className={this.classNames}>
       {this.props.description}
       {this.renderQuote()}
-    </section>;
+    </section>
   }
 
 }
-
-Component.mergeWith(CardOracle, {
-  className: 'card-oracle-component',
-  propTypes: Component.withPropTypes({
-    description: React.PropTypes.string,
-    quote: React.PropTypes.string,
-    author: React.PropTypes.string
-  })
-});
 
 export default CardOracle;
