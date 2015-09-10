@@ -1,0 +1,20 @@
+{
+  "id": "1",
+  "title": "Devin Canterberry",
+  "mainType": "Creature",
+  "secondaryType": "Human",
+  "cost": {
+    "blue": 2,
+    "green": 1,
+    "any": 4
+  },
+  "rarity": "uncommon",
+  "edition": "TWU",
+  "serial": 1,
+  "language": "en",
+  "oracle": "<p>Devin Canterberry cannot be countered.</p>",
+  "power": "2",
+  "toughness": "1",
+  "artwork": "https://twun.io/sea-siege/card/sample-artwork.jpg",
+  "artist": "Devin Canterberry"
+}

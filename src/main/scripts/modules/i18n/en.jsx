@@ -8,5 +8,6 @@ export default {
   common: s('Common'),
   uncommon: s('Uncommon'),
   rare: s('Rare'),
-  mythic: s('Mythic')
+  mythic: s('Mythic'),
+  cards: s('Cards')
 };

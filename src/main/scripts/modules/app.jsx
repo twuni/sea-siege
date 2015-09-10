@@ -1,16 +1,12 @@
-import Main from './react/main';
+import routes from './react/routes';
 
 class App {
-
-  get routes() {
-    return <ReactRouter.Route handler={Main} path='/'/>
-  }
 
   renderTo(outlet) {
     if(typeof(outlet) === 'string') {
       outlet = document.getElementById(outlet);
     }
-    ReactRouter.run(this.routes, function(Handler) {
+    ReactRouter.run(routes, function(Handler) {
       return React.render(<Handler/>, outlet);
     });
   }

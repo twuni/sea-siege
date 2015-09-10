@@ -34,6 +34,29 @@ class Component extends React.Component {
     return _.compact([this.constructor.className, this.className, this.props.className]).join(' ');
   }
 
+  componentDidMount() {
+    this.componentWillReceiveProps(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(this.shouldComponentLoad(nextProps)) {
+      let promise = this.load(nextProps);
+      if(promise) {
+        promise.then((collection) => {
+          this.setState({collection: collection});
+        });
+      }
+    }
+  }
+
+  load(nextProps) {
+    return undefined;
+  }
+
+  shouldComponentLoad(nextProps) {
+    return true;
+  }
+
   render() {
     return <span className={this.classNames}/>
   }

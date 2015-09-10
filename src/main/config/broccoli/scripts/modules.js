@@ -15,22 +15,9 @@ tree = react(tree, {
 });
 
 tree = babel(tree, {
-  moduleIds: true,
   modules: 'amd',
-  getModuleId: function(moduleName) {
-    moduleName = pkg.name + '/' + moduleName;
-    return moduleName.replace(/\/index$/g, '');
-  },
-  resolveModuleSource: function(source, fileName) {
-    var match, path;
-    match = fileName.match(/(.+)\/index\.\S+$/i);
-    if(match) {
-      path = match[1];
-      source = source.replace(/^\.\//, path + '/');
-      source = source.replace(/^\.{2}\//, '');
-    }
-    return source;
-  }
+  moduleIds: true,
+  moduleRoot: pkg.name
 });
 
 tree = concat(tree, {

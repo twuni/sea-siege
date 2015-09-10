@@ -34,7 +34,7 @@ class CardOracle extends Component {
 
   render() {
     return <section className={this.classNames}>
-      {this.props.description}
+      <span dangerouslySetInnerHTML={{__html: this.props.description}}/>
       {this.renderQuote()}
     </section>
   }

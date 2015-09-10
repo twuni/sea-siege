@@ -14,8 +14,9 @@ class Card extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      title: React.PropTypes.string.isRequired,
-      artwork: React.PropTypes.string.isRequired,
+      model: React.PropTypes.object,
+      title: React.PropTypes.string,
+      artwork: React.PropTypes.string,
       artist: React.PropTypes.string,
       mainType: React.PropTypes.string,
       secondaryType: React.PropTypes.string,
@@ -32,13 +33,18 @@ class Card extends Component {
     });
   }
 
+  get model() {
+    return this.props.model || this.props;
+  }
+
   render() {
+    let model = this.model;
     return <div className={this.classNames}>
-      <Header title={this.props.title} cost={this.props.cost}/>
-      <Artwork url={this.props.artwork}/>
-      <Taxonomy mainType={this.props.mainType} secondaryType={this.props.secondaryType} rarity={this.props.rarity} edition={this.props.edition}/>
-      <Oracle description={this.props.oracle} quote={this.props.quote} author={this.props.author}/>
-      <Footer artist={this.props.artist} power={this.props.power} toughness={this.props.toughness}/>
+      <Header title={model.title} cost={model.cost}/>
+      <Artwork url={model.artwork}/>
+      <Taxonomy mainType={model.mainType} secondaryType={model.secondaryType} rarity={model.rarity} edition={model.edition}/>
+      <Oracle description={model.oracle} quote={model.quote} author={model.author}/>
+      <Footer artist={model.artist} power={model.power} toughness={model.toughness}/>
     </div>
   }
 
