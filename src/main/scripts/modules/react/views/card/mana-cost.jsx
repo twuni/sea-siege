@@ -5,7 +5,7 @@ import Icon from '../../components/icon';
 class ManaCost extends Component {
 
   static get className() {
-    return 'mana-cost-component';
+    return 'card-view-mana-cost-component';
   }
 
   static get propTypes() {

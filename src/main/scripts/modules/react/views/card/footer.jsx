@@ -3,7 +3,7 @@ import Component from '../../components/component';
 class CardFooter extends Component {
 
   static get className() {
-    return 'card-footer-component';
+    return 'card-view-footer-component';
   }
 
   static get propTypes() {

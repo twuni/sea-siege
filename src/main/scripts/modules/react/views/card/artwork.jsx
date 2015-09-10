@@ -3,7 +3,7 @@ import Component from '../../components/component';
 class CardArtwork extends Component {
 
   static get className() {
-    return 'card-artwork-component';
+    return 'card-view-artwork-component';
   }
 
   static get propTypes() {

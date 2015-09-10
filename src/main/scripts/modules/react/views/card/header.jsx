@@ -5,7 +5,7 @@ import ManaCost from './mana-cost';
 class CardHeader extends Component {
 
   static get className() {
-    return 'card-header-component';
+    return 'card-view-header-component';
   }
 
   static get propTypes() {

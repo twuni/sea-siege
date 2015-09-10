@@ -3,7 +3,7 @@ import Component from '../../components/component';
 class CardOracle extends Component {
 
   static get className() {
-    return 'card-oracle-component';
+    return 'card-view-oracle-component';
   }
 
   static get propTypes() {

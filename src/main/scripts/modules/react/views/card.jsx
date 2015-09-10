@@ -9,7 +9,7 @@ import Footer from './card/footer';
 class Card extends Component {
 
   static get className() {
-    return 'card-component';
+    return 'card-view';
   }
 
   static get propTypes() {

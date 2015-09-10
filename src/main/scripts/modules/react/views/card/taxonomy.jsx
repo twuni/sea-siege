@@ -5,7 +5,7 @@ import EditionIcon from './edition-icon';
 class CardTaxonomy extends Component {
 
   static get className() {
-    return 'card-taxonomy-component';
+    return 'card-view-taxonomy-component';
   }
 
   static get propTypes() {
