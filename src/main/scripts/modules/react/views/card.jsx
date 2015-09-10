@@ -1,4 +1,4 @@
-import Component from './component';
+import Component from '../components/component';
 
 import Header from './card/header';
 import Artwork from './card/artwork';

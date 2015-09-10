@@ -1,4 +1,4 @@
-import Route from '../../route';
+import Route from '../../components/route';
 
 class CardViewRoute extends Route {
 

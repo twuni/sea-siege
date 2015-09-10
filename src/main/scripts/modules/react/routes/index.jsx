@@ -1,5 +1,5 @@
-import Route from '../route';
-import Link from '../link';
+import Route from '../components/route';
+import Link from '../components/link';
 
 class IndexRoute extends Route {
 

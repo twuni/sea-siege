@@ -1,6 +1,6 @@
-import Component from '../component';
+import Component from '../../components/component';
 
-import Icon from '../icon';
+import Icon from '../../components/icon';
 
 class EditionIcon extends Component {
 

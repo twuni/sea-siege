@@ -1,4 +1,4 @@
-import Component from '../component';
+import Component from '../../components/component';
 
 class CardOracle extends Component {
 

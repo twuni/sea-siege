@@ -1,7 +1,7 @@
-import CollectionRoute from '../../collection-route';
+import CollectionRoute from '../../components/collection-route';
 
 import CardModel from '../../../models/card';
-import CardView from '../../card';
+import CardView from '../../views/card';
 
 class CardsIndexRoute extends CollectionRoute {
 
