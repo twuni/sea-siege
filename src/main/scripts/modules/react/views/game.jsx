@@ -2,9 +2,7 @@ import View from '../components/view';
 
 class GameView extends View {
 
-  render() {
-    return <span className={this.classNames}/>
-  }
+  // Nothing to see here… move along, now.
 
 }
 
