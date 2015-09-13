@@ -5,10 +5,6 @@ import CardView from '../../views/card';
 
 class CardsIndexRoute extends CollectionRoute {
 
-  static get className() {
-    return 'cards-index-route';
-  }
-
   static get modelClass() {
     return CardModel;
   }

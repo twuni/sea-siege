@@ -2,10 +2,6 @@ import Component from '../../components/component';
 
 class CardOracle extends Component {
 
-  static get className() {
-    return 'card-view-oracle-component';
-  }
-
   static get propTypes() {
     return Component.withPropTypes({
       description: React.PropTypes.oneOfType([

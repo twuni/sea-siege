@@ -4,10 +4,6 @@ import EditionIcon from './edition-icon';
 
 class CardTaxonomy extends Component {
 
-  static get className() {
-    return 'card-view-taxonomy-component';
-  }
-
   static get propTypes() {
     return Component.withPropTypes({
       mainType: React.PropTypes.string.isRequired,

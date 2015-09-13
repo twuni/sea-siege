@@ -1,16 +1,18 @@
-.card-view-footer-component
-  margin 0 5px 5px
-  display flex
-  flex-direction row
+.card-view-component
 
-  .artist
-    flex 1
+  .card-footer-component
+    margin 0 5px 5px
+    display flex
+    flex-direction row
 
-  .creature-stats
+    .artist
+      flex 1
 
-    .power
+    .creature-stats
 
-      & + .toughness
+      .power
 
-        &:before
-          content ' / '
+        & + .toughness
+
+          &:before
+            content ' / '

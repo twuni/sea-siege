@@ -2,10 +2,6 @@ import Component from './component';
 
 class Icon extends Component {
 
-  static get className() {
-    return 'icon-component';
-  }
-
   static get propTypes() {
     return Component.withPropTypes({
       name: React.PropTypes.string.isRequired,

@@ -2,12 +2,20 @@ import HTTPClient from './http-client';
 
 class Model {
 
+  static get attributes() {
+    return ['id'];
+  }
+
+  static get typeKey() {
+    return `${_.kebabCase(this.name)}s`;
+  }
+
   static get url() {
-    return '/api/models.json';
+    return `/api/${this.typeKey}.json`;
   }
 
   get url() {
-    return `/api/models/${this.id}.json`;
+    return `/api/${this.constructor.typeKey}/${this.id}.json`;
   }
 
   static all() {
@@ -65,7 +73,7 @@ class Model {
   }
 
   constructor(params = {}) {
-    this.id = params.id;
+    _.merge(this, params);
   }
 
   destroy() {
@@ -94,9 +102,9 @@ class Model {
 
   serialize() {
     return new Promise((resolve, reject) => {
-      let serial = {
-        id: this.id
-      };
+      let attributes = this.constructor.attributes;
+      let args = [this].concat(attributes);
+      let serial = _.pick.apply(_, args);
       resolve(serial);
     });
   }

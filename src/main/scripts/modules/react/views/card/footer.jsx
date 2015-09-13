@@ -2,10 +2,6 @@ import Component from '../../components/component';
 
 class CardFooter extends Component {
 
-  static get className() {
-    return 'card-view-footer-component';
-  }
-
   static get propTypes() {
     return Component.withPropTypes({
       artist: React.PropTypes.string.isRequired,

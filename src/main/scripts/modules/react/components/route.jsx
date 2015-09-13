@@ -2,10 +2,6 @@ import Component from './component';
 
 class Route extends Component {
 
-  static get className() {
-    return 'route';
-  }
-
   static get contextTypes() {
     return Component.withContextTypes({
       router: React.PropTypes.func.isRequired
@@ -23,5 +19,11 @@ class Route extends Component {
   }
 
 }
+
+_.merge(Route, {
+  withPropTypes: Component.withPropTypes,
+  withContextTypes: Component.withContextTypes,
+  withDefaultProps: Component.withDefaultProps
+});
 
 export default Route;

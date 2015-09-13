@@ -1,4 +1,4 @@
-import Component from '../components/component';
+import View from '../components/view';
 
 import Header from './card/header';
 import Artwork from './card/artwork';
@@ -6,14 +6,10 @@ import Taxonomy from './card/taxonomy';
 import Oracle from './card/oracle';
 import Footer from './card/footer';
 
-class Card extends Component {
-
-  static get className() {
-    return 'card-view';
-  }
+class CardView extends View {
 
   static get propTypes() {
-    return Component.withPropTypes({
+    return View.withPropTypes({
       model: React.PropTypes.object,
       title: React.PropTypes.string,
       artwork: React.PropTypes.string,
@@ -50,4 +46,4 @@ class Card extends Component {
 
 }
 
-export default Card;
+export default CardView;
