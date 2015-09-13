@@ -8,7 +8,7 @@ Really, though, this is just practice with React.
 
 ```
 npm install
-npm run-script build
+npm run build
 ```
 
 ## Running
