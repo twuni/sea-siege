@@ -1,6 +1,6 @@
 import Component from '../../components/component';
 
-class CardFooter extends Component {
+class Footer extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
@@ -31,4 +31,4 @@ class CardFooter extends Component {
 
 }
 
-export default CardFooter;
+export default Footer;

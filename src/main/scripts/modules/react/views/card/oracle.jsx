@@ -1,6 +1,6 @@
 import Component from '../../components/component';
 
-class CardOracle extends Component {
+class Oracle extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
@@ -37,4 +37,4 @@ class CardOracle extends Component {
 
 }
 
-export default CardOracle;
+export default Oracle;

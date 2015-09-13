@@ -2,7 +2,7 @@ import Component from '../../components/component';
 
 import EditionIcon from './edition-icon';
 
-class CardTaxonomy extends Component {
+class Taxonomy extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
@@ -33,4 +33,4 @@ class CardTaxonomy extends Component {
 
 }
 
-export default CardTaxonomy;
+export default Taxonomy;

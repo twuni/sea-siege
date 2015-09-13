@@ -1,6 +1,6 @@
 import Component from '../../components/component';
 
-class CardArtwork extends Component {
+class Artwork extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
@@ -14,4 +14,4 @@ class CardArtwork extends Component {
 
 }
 
-export default CardArtwork;
+export default Artwork;

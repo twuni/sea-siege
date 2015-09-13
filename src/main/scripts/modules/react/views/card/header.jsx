@@ -2,7 +2,7 @@ import Component from '../../components/component';
 
 import ManaCost from './mana-cost';
 
-class CardHeader extends Component {
+class Header extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
@@ -22,4 +22,4 @@ class CardHeader extends Component {
 
 }
 
-export default CardHeader;
+export default Header;
