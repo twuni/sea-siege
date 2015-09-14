@@ -3,7 +3,7 @@ import Model from '../model';
 class Game extends Model {
 
   static get attributes() {
-    return ['id'];
+    return ['id', 'displayName', 'logoUrl'];
   }
 
 }

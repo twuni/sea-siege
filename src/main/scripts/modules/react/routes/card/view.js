@@ -1,9 +1,9 @@
-import CollectionRoute from '../../components/collection-route';
+import ModelRoute from '../../components/model-route';
 
 import CardModel from '../../../models/card';
 import CardView from '../../views/card';
 
-class CardsIndexRoute extends CollectionRoute {
+class CardViewRoute extends ModelRoute {
 
   static get modelClass() {
     return CardModel;
@@ -15,4 +15,4 @@ class CardsIndexRoute extends CollectionRoute {
 
 }
 
-export default CardsIndexRoute;
+export default CardViewRoute;

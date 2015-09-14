@@ -1,5 +1,5 @@
 const babel = require('broccoli-babel-transpiler');
-const react = require('broccoli-react');
+const coffee = require('broccoli-coffee');
 const concat = require('broccoli-concat');
 const pkg = require('../../../../../package.json');
 
@@ -7,11 +7,8 @@ var tree;
 
 tree = 'src/main/scripts/modules';
 
-tree = react(tree, {
-  transform: {
-    harmony: true,
-    es6module: true
-  }
+tree = coffee(tree, {
+  bare: true
 });
 
 tree = babel(tree, {

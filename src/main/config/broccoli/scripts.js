@@ -1,5 +1,4 @@
 const babel = require('broccoli-babel-transpiler');
-const react = require('broccoli-react');
 const concat = require('broccoli-concat');
 const merge = require('broccoli-merge-trees');
 const uglify = require('broccoli-uglify-js');
@@ -16,7 +15,6 @@ tree = concat(tree, {
   outputFile: '/main.js'
 });
 
-tree = react(tree, {transform: {harmony: true}});
 tree = babel(tree);
 tree = merge([dependencies, modules, tree]);
 

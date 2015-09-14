@@ -52,6 +52,9 @@ class Model {
   static create(params = {}) {
     return new Promise((resolve, reject) => {
       HTTPClient.post(this.url, {data: params}).then((response) => {
+        if(_.isString(response)) {
+          response = JSON.parse(response);
+        }
         this.deserialize(response).then(resolve, reject);
       }, reject);
     });
@@ -66,7 +69,11 @@ class Model {
 
   static find(params = {}) {
     return new Promise((resolve, reject) => {
-      HTTPClient.get(new this(params).url).then((response) => {
+      let proto = new this(params);
+      HTTPClient.get(proto.url).then((response) => {
+        if(_.isString(response)) {
+          response = JSON.parse(response);
+        }
         this.deserialize(response).then(resolve, reject);
       }, reject);
     });

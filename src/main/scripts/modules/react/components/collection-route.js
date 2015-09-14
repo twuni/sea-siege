@@ -1,10 +1,12 @@
 import Route from './route';
 
+const {array} = React.PropTypes;
+
 class CollectionRoute extends Route {
 
   static get propTypes() {
     return Route.withPropTypes({
-      collection: React.PropTypes.array
+      collection: array
     });
   }
 
@@ -21,23 +23,25 @@ class CollectionRoute extends Route {
   }
 
   load() {
-    if(this.constructor.modelClass) {
-      return this.constructor.modelClass.all();
+    let Model = this.constructor.modelClass;
+    if(Model) {
+      return Model.all();
     }
     return undefined;
   }
 
   render() {
-    return <div className={this.classNames}>
+    let View = this.constructor.viewClass;
+    return <ul className={this.classNames}>
       {
         _.compact(_.map(this.collection, (model) => {
-          if(this.constructor.viewClass) {
-            return <this.constructor.viewClass key={model.id} model={model}/>
+          if(View) {
+            return <View key={model.id} model={model}/>
           }
           return undefined;
         }))
       }
-    </div>
+    </ul>
   }
 
 }

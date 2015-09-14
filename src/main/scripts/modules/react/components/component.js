@@ -14,16 +14,16 @@ class Component extends React.Component {
     return React.Component.defaultProps;
   }
 
-  static withContextTypes(contextTypes) {
-    return _.merge({}, this.contextTypes, contextTypes);
+  static withContextTypes(...contextTypes) {
+    return _.merge.apply(_, [{}, this.contextTypes].concat(contextTypes));
   }
 
-  static withPropTypes(propTypes) {
-    return _.merge({}, this.propTypes, propTypes);
+  static withPropTypes(...propTypes) {
+    return _.merge.apply(_, [{}, this.propTypes].concat(propTypes));
   }
 
-  static withDefaultProps(defaultProps) {
-    return _.merge({}, this.defaultProps, defaultProps);
+  static withDefaultProps(...defaultProps) {
+    return _.merge.apply(_, [{}, this.defaultProps].concat(defaultProps));
   }
 
   get classNames() {
@@ -38,8 +38,12 @@ class Component extends React.Component {
     if(this.shouldComponentLoad(nextProps)) {
       let promise = this.load(nextProps);
       if(promise) {
-        promise.then((collection) => {
-          this.setState({collection: collection});
+        promise.then((result) => {
+          if(_.isArray(result)) {
+            this.setState({collection: result});
+          } else {
+            this.setState({model: result});
+          }
         });
       }
     }

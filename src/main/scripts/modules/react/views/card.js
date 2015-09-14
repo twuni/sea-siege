@@ -10,6 +10,9 @@ class CardView extends View {
 
   render() {
     let model = this.model;
+    if(!model.id) {
+      return <div className={this.classNames}/>
+    }
     return <div className={this.classNames}>
       <Header title={model.title} cost={model.cost}/>
       <Artwork url={model.artwork}/>
