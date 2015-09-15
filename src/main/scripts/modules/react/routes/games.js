@@ -1,12 +1,12 @@
 import Route from '../components/route';
 
+import Header from '../components/header';
+
 class GamesRoute extends Route {
 
   render() {
     return <section className={this.classNames}>
-      <header>
-        <h3>{this.t('games')}</h3>
-      </header>
+      <Header title={this.t('games')}/>
       {this.renderChildRoute()}
       <footer/>
     </section>

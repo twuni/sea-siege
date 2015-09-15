@@ -1,0 +1,22 @@
+.game-list-item-view-component
+  list-style none
+  padding 10px
+  border-bottom solid 1px rgba(0, 0, 0, 0.1)
+  background-color rgba(0, 0, 0, 0.05)
+  display flex
+  flex-direction row
+  cursor pointer
+  transition-property background-color
+  transition-timing-function ease-in-out
+  transition-duration 100ms
+
+  &:hover
+    background-color rgba(0, 0, 0, 0.1)
+
+  > .link-component
+
+    &:first-of-type
+      flex 1
+      cursor pointer
+      text-decoration none
+      text-shadow rgba(0, 0, 0, 0.75)

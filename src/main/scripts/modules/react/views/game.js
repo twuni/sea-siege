@@ -29,7 +29,6 @@ class GameView extends View {
       </header>
       <footer>
         <Link to='game.servers' params={params} label='servers'/>
-        <Link to='game.players' params={params} label='players'/>
       </footer>
     </section>
 

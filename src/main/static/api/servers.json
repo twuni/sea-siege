@@ -1,0 +1,11 @@
+[
+  {
+    "id": "atlantic",
+    "gameId": "ultima-online",
+    "displayName": "Atlantic"
+  }, {
+    "id": "pacific",
+    "gameId": "ultima-online",
+    "displayName": "Pacific"
+  }
+]

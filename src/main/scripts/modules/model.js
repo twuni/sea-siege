@@ -62,15 +62,22 @@ class Model {
 
   static deserialize(serial = {}) {
     return new Promise((resolve, reject) => {
-      let deserialized = new this(serial);
-      resolve(deserialized);
+      if(_.isArray(serial)) {
+        resolve(serial.map((item) => {
+          return new this(item);
+        }));
+        return;
+      }
+      resolve(new this(serial));
     });
   }
 
   static find(params = {}) {
     return new Promise((resolve, reject) => {
+      // TODO: Support more than just an `id` param
       let proto = new this(params);
-      HTTPClient.get(proto.url).then((response) => {
+      let request = HTTPClient.get(proto.url);
+      request.then((response) => {
         if(_.isString(response)) {
           response = JSON.parse(response);
         }

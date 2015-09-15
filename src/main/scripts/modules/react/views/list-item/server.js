@@ -3,7 +3,7 @@ import View from '../../components/view';
 import IconLink from '../../components/icon-link';
 import Link from '../../components/link';
 
-class GameListItemView extends View {
+class ServerListItemView extends View {
 
   render() {
 
@@ -14,16 +14,17 @@ class GameListItemView extends View {
     }
 
     let params = {
-      gameId: model.id
+      serverId: model.id
     };
 
     return <li className={this.classNames}>
-      <Link to='game.servers' params={params}>{model.displayName}</Link>
-      <IconLink to='game.servers' params={params} name='cube'/>
+      <Link to='server.guilds' params={params}>{model.displayName}</Link>
+      <IconLink to='server.guilds' params={params} name='tag'/>
+      <IconLink to='server.characters' params={params} name='user'/>
     </li>
 
   }
 
 }
 
-export default GameListItemView;
+export default ServerListItemView;

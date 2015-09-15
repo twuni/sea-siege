@@ -16,9 +16,9 @@ class Link extends Component {
     let props = _.omit(this.props, 'label');
     let label = this.props.label || this.props.to;
     if(_.isEmpty(this.props.children)) {
-      return <ReactRouter.Link {...props}>{this.t(label)}</ReactRouter.Link>
+      return <ReactRouter.Link {...props} className={this.classNames}>{this.t(label)}</ReactRouter.Link>
     }
-    return <ReactRouter.Link {...props}>{this.props.children}</ReactRouter.Link>
+    return <ReactRouter.Link {...props} className={this.classNames}>{this.props.children}</ReactRouter.Link>
   }
 
 }

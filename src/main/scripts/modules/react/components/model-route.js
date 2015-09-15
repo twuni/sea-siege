@@ -42,11 +42,12 @@ class ModelRoute extends Route {
     let View = this.constructor.viewClass;
 
     if(!View) {
-      return <div className={this.classNames}/>
+      return super.render();
     }
 
     return <div className={this.classNames}>
       <View model={this.model}/>
+      {this.renderChildRoute()}
     </div>
 
   }
