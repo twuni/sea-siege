@@ -8,6 +8,18 @@ class Route extends Component {
     });
   }
 
+  get criteria() {
+    return _.merge({}, this.params, this.query);
+  }
+
+  get params() {
+    return (this.props && this.props.params) || {};
+  }
+
+  get query() {
+    return (this.props && this.props.query) || {};
+  }
+
   renderChildRoute() {
     return <ReactRouter.RouteHandler/>
   }

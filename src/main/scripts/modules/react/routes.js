@@ -32,11 +32,11 @@ export default <Route path='/' handler={Index}>
   <Route name='games' path='games' handler={Games}>
     <DefaultRoute name='games.index' handler={GamesIndex}/>
     <Route name='game' path=':gameId' handler={Game}>
-      <Route name='game.servers' path='servers' handler={GameServers}>
-        <DefaultRoute name='game.servers.index' handler={GameServersIndex}/>
-        <Route name='game.server' path=':serverId' handler={GameServer}>
-          <Route name='game.server.guilds' path='guilds' handler={GameServerGuilds}/>
-          <Route name='game.server.characters' path='characters' handler={GameServerCharacters}/>
+      <Route name='servers' path='servers' handler={GameServers}>
+        <DefaultRoute name='servers.index' handler={GameServersIndex}/>
+        <Route name='server' path=':serverId' handler={GameServer}>
+          <Route name='server.guilds' path='guilds' handler={GameServerGuilds}/>
+          <Route name='server.characters' path='characters' handler={GameServerCharacters}/>
         </Route>
       </Route>
     </Route>

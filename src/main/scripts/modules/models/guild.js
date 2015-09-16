@@ -1,5 +1,6 @@
 import Model from '../model';
 
+import GuildMembership from './guild-membership';
 import Server from './server';
 
 class Guild extends Model {
@@ -9,8 +10,14 @@ class Guild extends Model {
   }
 
   get server() {
-    return Server.find({
+    return Server.uniq({
       id: this.serverId
+    });
+  }
+
+  get guildMemberships() {
+    return GuildMembership.find({
+      guildId: this.id
     });
   }
 

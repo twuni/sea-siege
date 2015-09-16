@@ -28,7 +28,7 @@ class GameView extends View {
         <h3>{this.renderTitle()}</h3>
       </header>
       <footer>
-        <Link to='game.servers' params={params} label='servers'/>
+        <Link to='servers' params={params} label='servers'/>
       </footer>
     </section>
 

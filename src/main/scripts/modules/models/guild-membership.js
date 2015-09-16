@@ -10,13 +10,13 @@ class GuildMembership extends Model {
   }
 
   get guild() {
-    return Guild.find({
+    return Guild.uniq({
       id: this.guildId
     });
   }
 
   get character() {
-    return Character.find({
+    return Character.uniq({
       id: this.characterId
     });
   }

@@ -14,6 +14,7 @@ class ServerListItemView extends View {
     }
 
     let params = {
+      gameId: model.gameId,
       serverId: model.id
     };
 

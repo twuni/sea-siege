@@ -25,7 +25,7 @@ class CollectionRoute extends Route {
   load() {
     let Model = this.constructor.modelClass;
     if(Model) {
-      return Model.all();
+      return Model.find(this.criteria);
     }
     return undefined;
   }

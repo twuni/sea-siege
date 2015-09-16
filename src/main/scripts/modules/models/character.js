@@ -1,7 +1,8 @@
 import Model from '../model';
 
-import Server from './server';
+import GuildMembership from './guild-membership';
 import Player from './player';
+import Server from './server';
 
 class Character extends Model {
 
@@ -10,14 +11,20 @@ class Character extends Model {
   }
 
   get player() {
-    return Player.find({
+    return Player.uniq({
       id: this.playerId
     });
   }
 
   get server() {
-    return Server.find({
+    return Server.uniq({
       id: this.serverId
+    });
+  }
+
+  get guildMemberships() {
+    return GuildMembership.find({
+      characterId: this.id
     });
   }
 

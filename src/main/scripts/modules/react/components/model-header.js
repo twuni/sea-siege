@@ -12,11 +12,14 @@ class ModelHeader extends Component {
     });
   }
 
+  get model() {
+    return (this.state && this.state.model) || (this.props && this.props.model) || {};
+  }
+
   render() {
-    let model = this.props.model;
-    let title = model.displayName;
+    let title = this.model.displayName;
     if(title) {
-      return <Header title={model.displayName}/>
+      return <Header title={title}/>
     }
     return <header/>
   }

@@ -30,7 +30,7 @@ class ModelRoute extends Route {
     if(Model && params) {
       let keyForId = `${_.camelCase(Model.name)}Id`;
       let id = params[keyForId];
-      return Model.find({id});
+      return Model.uniq({id});
     }
 
     return undefined;

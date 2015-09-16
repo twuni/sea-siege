@@ -74,15 +74,25 @@ class Model {
 
   static find(params = {}) {
     return new Promise((resolve, reject) => {
-      // TODO: Support more than just an `id` param
-      let proto = new this(params);
-      let request = HTTPClient.get(proto.url);
-      request.then((response) => {
-        if(_.isString(response)) {
-          response = JSON.parse(response);
-        }
-        this.deserialize(response).then(resolve, reject);
-      }, reject);
+      this.all().catch(reject).then((models) => {
+        resolve(models.filter(function(model) {
+          for(let key in params) {
+            if(params[key] != model[key]) {
+              return false;
+            }
+          }
+          return true;
+        }));
+      });
+    });
+  }
+
+  static uniq(params = {}) {
+    return new Promise((resolve, reject) => {
+      this.find(params).catch(reject).then(function(models) {
+        let model = models[0];
+        resolve(model);
+      });
     });
   }
 
