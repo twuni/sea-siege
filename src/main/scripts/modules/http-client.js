@@ -1,8 +1,24 @@
+import Cache from './cache';
+
 class HTTPClient {
 
-  static execute(method, uri, options = {}) {
+  constructor(options = {}) {
+    this.cache = options.cache || new Cache();
+  }
+
+  execute(method, uri, options = {}) {
+
+    const cache = this.cache;
+    const cacheKey = `${method} ${uri}`;
 
     return new Promise(function(resolve, reject) {
+
+      let response = cache.fetch(cacheKey);
+
+      if(response !== undefined) {
+        resolve(response);
+        return;
+      }
 
       let request = new XMLHttpRequest();
 
@@ -21,6 +37,7 @@ class HTTPClient {
             reason: request.statusText
           });
         } else {
+          cache.save(cacheKey, request.response);
           resolve(request.response);
         }
       });
@@ -52,23 +69,23 @@ class HTTPClient {
 
   }
 
-  static delete(uri, options = {}) {
+  delete(uri, options = {}) {
     return this.execute('delete', uri, options);
   }
 
-  static get(uri, options = {}) {
+  get(uri, options = {}) {
     return this.execute('get', uri, options);
   }
 
-  static head(uri, options = {}) {
+  head(uri, options = {}) {
     return this.execute('head', uri, options);
   }
 
-  static post(uri, options = {}) {
+  post(uri, options = {}) {
     return this.execute('post', uri, options);
   }
 
-  static put(uri, options = {}) {
+  put(uri, options = {}) {
     return this.execute('put', uri, options);
   }
 

@@ -22,7 +22,7 @@ import GameServerGuilds from './routes/game/server/guilds';
 let Route = ReactRouter.Route;
 let DefaultRoute = ReactRouter.DefaultRoute;
 
-export default <Route path='/' handler={Index}>
+export default <Route name='index' path='/' handler={Index}>
   <Route name='cards' path='cards' handler={Cards}>
     <DefaultRoute name='cards.index' handler={CardsIndex}/>
     <Route name='card' path=':cardId' handler={Card}>

@@ -8,9 +8,11 @@ class IndexRoute extends Route {
 
   render() {
     return <section className={this.classNames}>
-      <Header title={this.t('guild_network')}>
-        <img src='/assets/logo.png'/>
-      </Header>
+      <Link to='index'>
+        <Header title={this.t('guild_network')}>
+          <img src='/assets/logo.png'/>
+        </Header>
+      </Link>
       <section>
         <aside>
           <nav>

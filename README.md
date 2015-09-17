@@ -14,5 +14,6 @@ npm run build
 ## Running
 
 ```
-(cd target && python -m SimpleHTTPServer)
+npm start
 ```
+

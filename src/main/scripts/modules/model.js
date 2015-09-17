@@ -20,7 +20,7 @@ class Model {
 
   static all() {
     return new Promise((resolve, reject) => {
-      HTTPClient.get(this.url).then((serials) => {
+      this.__http.get(this.url).then((serials) => {
         if(_.isString(serials)) {
           serials = JSON.parse(serials);
         }
@@ -51,7 +51,7 @@ class Model {
 
   static create(params = {}) {
     return new Promise((resolve, reject) => {
-      HTTPClient.post(this.url, {data: params}).then((response) => {
+      this.__http.post(this.url, {data: params}).then((response) => {
         if(_.isString(response)) {
           response = JSON.parse(response);
         }
@@ -102,7 +102,7 @@ class Model {
 
   destroy() {
     return new Promise((resolve, reject) => {
-      HTTPClient.delete(this.url).then(() => {
+      this.constructor.__http.delete(this.url).then(() => {
         resolve(this);
       }, reject);
     });
@@ -116,7 +116,7 @@ class Model {
 
   save() {
     return new Promise((resolve, reject) => {
-      HTTPClient.put(this.url, {
+      this.constructor.__http.put(this.url, {
         data: this.serialize()
       }).then(() => {
         resolve(this);
@@ -134,5 +134,7 @@ class Model {
   }
 
 }
+
+Model.__http = new HTTPClient();
 
 export default Model;
