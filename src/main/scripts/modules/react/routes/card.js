@@ -1,7 +1,11 @@
 import Route from '../components/route';
 
 class CardRoute extends Route {
-  // Nothing to see here… move along, now.
+
+  render() {
+    return this.renderChildRoute();
+  }
+
 }
 
 export default CardRoute;

@@ -6,13 +6,25 @@ class Header extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      title: string.isRequired
+      title: string
     });
+  }
+
+  get title() {
+    return this.props.title;
+  }
+
+  renderTitle() {
+    let title = this.title;
+    if(title) {
+      return <h3>{title}</h3>
+    }
+    return undefined;
   }
 
   render() {
     return <header className={this.classNames}>
-      <h3>{this.props.title}</h3>
+      {this.renderTitle()}
       {this.props.children}
     </header>
   }

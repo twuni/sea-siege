@@ -2,6 +2,10 @@ import I18n from '../../i18n';
 
 class Component extends React.Component {
 
+  static get className() {
+    return `${_.kebabCase(this.name)}-component`;
+  }
+
   static get contextTypes() {
     return React.Component.contextTypes;
   }
@@ -27,7 +31,7 @@ class Component extends React.Component {
   }
 
   get classNames() {
-    return _.compact([`${_.kebabCase(this.constructor.name)}-component`, this.props.className]).join(' ');
+    return _.uniq(_.compact([this.constructor.className, this.props.className])).join(' ');
   }
 
   componentDidMount() {

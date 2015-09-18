@@ -13,6 +13,14 @@ class CardViewRoute extends ModelRoute {
     return CardView;
   }
 
+  renderHeader() {
+    return undefined;
+  }
+
+  renderFooter() {
+    return undefined;
+  }
+
 }
 
 export default CardViewRoute;

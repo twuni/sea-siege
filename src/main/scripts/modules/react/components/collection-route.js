@@ -33,14 +33,12 @@ class CollectionRoute extends Route {
   render() {
     let View = this.constructor.viewClass;
     return <ul className={this.classNames}>
-      {
-        _.compact(_.map(this.collection, (model) => {
-          if(View) {
-            return <View key={model.id} model={model}/>
-          }
-          return undefined;
-        }))
-      }
+      {_.compact(_.map(this.collection, (model) => {
+        if(View) {
+          return <View key={model.id} model={model}/>
+        }
+        return undefined;
+      }))}
     </ul>
   }
 

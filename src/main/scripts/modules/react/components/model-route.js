@@ -22,6 +22,10 @@ class ModelRoute extends Route {
     return (this.state && this.state.model) || (this.props && this.props.model) || {};
   }
 
+  get title() {
+    return (this.model && this.model.displayName) || super.title;
+  }
+
   load() {
 
     let Model = this.constructor.modelClass;
@@ -37,19 +41,12 @@ class ModelRoute extends Route {
 
   }
 
-  render() {
-
+  renderContent() {
     let View = this.constructor.viewClass;
-
     if(!View) {
-      return super.render();
+      return super.renderContent();
     }
-
-    return <div className={this.classNames}>
-      <View model={this.model}/>
-      {this.renderChildRoute()}
-    </div>
-
+    return <View model={this.model}/>
   }
 
 }

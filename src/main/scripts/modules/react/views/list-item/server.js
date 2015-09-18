@@ -20,8 +20,10 @@ class ServerListItemView extends View {
 
     return <li className={this.classNames}>
       <Link to='server.guilds' params={params}>{model.displayName}</Link>
-      <IconLink to='server.guilds' params={params} name='tag'/>
-      <IconLink to='server.characters' params={params} name='user'/>
+      <span>
+        <IconLink to='server.guilds' params={params} name='tag'/>
+        <IconLink to='server.characters' params={params} name='user'/>
+      </span>
     </li>
 
   }

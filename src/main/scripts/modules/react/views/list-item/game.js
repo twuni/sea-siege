@@ -19,7 +19,9 @@ class GameListItemView extends View {
 
     return <li className={this.classNames}>
       <Link to='servers' params={params}>{model.displayName}</Link>
-      <IconLink to='servers' params={params} name='cube'/>
+      <span>
+        <IconLink to='servers' params={params} name='cube'/>
+      </span>
     </li>
 
   }
