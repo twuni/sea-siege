@@ -7,6 +7,10 @@ import Link from '../components/link';
 
 class IndexRoute extends Route {
 
+  static get breadcrumb() {
+    return '…';
+  }
+
   renderContent() {
     return <section>
       <aside>
