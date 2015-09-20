@@ -6,7 +6,7 @@ class App {
     if(typeof(outlet) === 'string') {
       outlet = document.getElementById(outlet);
     }
-    React.render(<ReactRouter.Router history={History.createHistory()} routes={routes}/>, outlet);
+    ReactDOM.render(<ReactRouter.Router history={History.createHistory()} routes={routes}/>, outlet);
   }
 
 }
