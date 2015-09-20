@@ -2,8 +2,9 @@ import Component from './component';
 
 import Footer from './footer';
 import Header from './header';
+import Link from './link';
 
-const {func} = React.PropTypes;
+const {array, object} = React.PropTypes;
 
 class Route extends Component {
 
@@ -13,12 +14,37 @@ class Route extends Component {
 
   static get contextTypes() {
     return Component.withContextTypes({
-      router: func.isRequired
+      history: object.isRequired,
+      location: object.isRequired
     });
+  }
+
+  static get propTypes() {
+    return Component.withPropTypes({
+      history: object.isRequired,
+      location: object.isRequired,
+      params: object.isRequired,
+      route: object.isRequired,
+      routeParams: object.isRequired,
+      routes: array.isRequired
+    });
+  }
+
+  get breadcrumb() {
+    let url = this.url;
+    let label = this.title;
+    if(url && label) {
+      return <Link key={url} to={url} label={label}/>
+    }
+    return undefined;
   }
 
   get criteria() {
     return _.merge({}, this.params, this.query);
+  }
+
+  get location() {
+    return (this.props && this.props.location) || {};
   }
 
   get params() {
@@ -26,19 +52,20 @@ class Route extends Component {
   }
 
   get query() {
-    return (this.props && this.props.query) || {};
+    return this.location.query;
   }
 
   get title() {
+    let className = this.constructor.name;
+    return className.replace(/^(.+)Route$/, '$1');
+  }
+
+  get url() {
     return undefined;
   }
 
-  renderChildRoute() {
-    return <ReactRouter.RouteHandler/>
-  }
-
   renderContent() {
-    return this.renderChildRoute();
+    return this.props.children;
   }
 
   renderFooter() {

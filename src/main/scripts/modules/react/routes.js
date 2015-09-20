@@ -1,4 +1,4 @@
-import Index from './routes/index';
+import App from './routes/app';
 
 import Cards from './routes/cards';
 import CardsIndex from './routes/cards/index';
@@ -20,23 +20,23 @@ import GameServerCharacters from './routes/game/server/characters';
 import GameServerGuilds from './routes/game/server/guilds';
 
 let Route = ReactRouter.Route;
-let DefaultRoute = ReactRouter.DefaultRoute;
+let IndexRoute = ReactRouter.IndexRoute;
 
-export default <Route name='index' path='/' handler={Index}>
-  <Route name='cards' path='cards' handler={Cards}>
-    <DefaultRoute name='cards.index' handler={CardsIndex}/>
-    <Route name='card' path=':cardId' handler={Card}>
-      <DefaultRoute name='card.view' handler={CardView}/>
+export default <Route path='/' component={App}>
+  <Route path='cards' component={Cards}>
+    <IndexRoute component={CardsIndex}/>
+    <Route path=':cardId' component={Card}>
+      <IndexRoute component={CardView}/>
     </Route>
   </Route>
-  <Route name='games' path='games' handler={Games}>
-    <DefaultRoute name='games.index' handler={GamesIndex}/>
-    <Route name='game' path=':gameId' handler={Game}>
-      <Route name='servers' path='servers' handler={GameServers}>
-        <DefaultRoute name='servers.index' handler={GameServersIndex}/>
-        <Route name='server' path=':serverId' handler={GameServer}>
-          <Route name='server.guilds' path='guilds' handler={GameServerGuilds}/>
-          <Route name='server.characters' path='characters' handler={GameServerCharacters}/>
+  <Route path='games' component={Games}>
+    <IndexRoute component={GamesIndex}/>
+    <Route path=':gameId' component={Game}>
+      <Route path='servers' component={GameServers}>
+        <IndexRoute component={GameServersIndex}/>
+        <Route path=':serverId' component={GameServer}>
+          <Route path='guilds' component={GameServerGuilds}/>
+          <Route path='characters' component={GameServerCharacters}/>
         </Route>
       </Route>
     </Route>

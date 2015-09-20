@@ -12,12 +12,8 @@ class CardListItemView extends View {
       return <li className={this.classNames}/>
     }
 
-    let params = {
-      cardId: model.id
-    };
-
     return <li className={this.classNames}>
-      <Link to='card' params={params}>{model.title}</Link>
+      <Link to={this.url}>{model.title}</Link>
     </li>
 
   }

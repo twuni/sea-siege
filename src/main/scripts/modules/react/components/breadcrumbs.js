@@ -3,24 +3,24 @@ import Component from './component';
 import Link from './link';
 import Route from './route';
 
+const {array} = React.PropTypes;
+
 class Breadcrumbs extends Component {
 
-  static get contextTypes() {
-    return Route.contextTypes;
-  }
-
-  get router() {
-    return this.context.router;
+  static get propTypes() {
+    return Component.withPropTypes({
+      routes: array.isRequired
+    });
   }
 
   get routes() {
-    return this.router.routes;
+    return this.props.routes;
   }
 
   renderBreadcrumb(route) {
-    let name = route.name;
-    let label = route.handler.breadcrumb || name;
-    return <Link key={name} to={name} label={label}/>
+    // FIXME: Route#breadcrumb is only accessible on an instance of Route.
+    // Here, `route.component` only gives us a reference to the class.
+    return route.component.breadcrumb;
   }
 
   render() {

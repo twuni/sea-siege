@@ -5,42 +5,38 @@ import Header from '../components/header';
 import Icon from '../components/icon';
 import Link from '../components/link';
 
-class IndexRoute extends Route {
-
-  static get breadcrumb() {
-    return '…';
-  }
+class AppRoute extends Route {
 
   renderContent() {
     return <section>
       <aside>
         <nav>
-          <Link to='cards'>
+          <Link to='/cards'>
             <Icon name='credit-card'/>
             {this.t('cards')}
           </Link>
-          <Link to='games'>
+          <Link to='/games'>
             <Icon name='gamepad'/>
             {this.t('games')}
           </Link>
         </nav>
       </aside>
       <section>
-        {this.renderChildRoute()}
+        {this.props.children}
       </section>
     </section>
   }
 
   renderHeader() {
     return <Header>
-      <Link to='index'>
+      <Link to='/'>
         <h3>{this.t('guild_network')}</h3>
         <img src='/assets/logo.png'/>
       </Link>
-      <Breadcrumbs/>
+      <Breadcrumbs routes={this.props.routes}/>
     </Header>
   }
 
 }
 
-export default IndexRoute;
+export default AppRoute;

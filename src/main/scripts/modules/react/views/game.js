@@ -19,16 +19,12 @@ class GameView extends View {
       return <section className={this.classNames}/>
     }
 
-    let params = {
-      gameId: model.id
-    };
-
     return <section className={this.classNames}>
       <header>
         <h3>{this.renderTitle()}</h3>
       </header>
       <footer>
-        <Link to='servers' params={params} label='servers'/>
+        <Link to={`${this.url}/servers`} label='servers'/>
       </footer>
     </section>
 

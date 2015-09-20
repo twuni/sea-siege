@@ -13,14 +13,10 @@ class GameListItemView extends View {
       return <li className={this.classNames}/>
     }
 
-    let params = {
-      gameId: model.id
-    };
-
     return <li className={this.classNames}>
-      <Link to='servers' params={params}>{model.displayName}</Link>
+      <Link to={`${this.url}/servers`}>{model.displayName}</Link>
       <span>
-        <IconLink to='servers' params={params} name='cube'/>
+        <IconLink to={`${this.url}/servers`} name='cube'/>
       </span>
     </li>
 

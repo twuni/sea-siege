@@ -9,11 +9,11 @@ class HTTPClient {
   execute(method, uri, options = {}) {
 
     const cache = this.cache;
-    const cacheKey = `${method} ${uri}`;
+    const signature = `${method} ${uri}`;
 
     return new Promise(function(resolve, reject) {
 
-      let response = cache.fetch(cacheKey);
+      let response = cache.fetch(signature);
 
       if(response !== undefined) {
         resolve(response);
@@ -37,7 +37,7 @@ class HTTPClient {
             reason: request.statusText
           });
         } else {
-          cache.save(cacheKey, request.response);
+          cache.save(signature, request.response);
           resolve(request.response);
         }
       });

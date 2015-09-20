@@ -6,9 +6,7 @@ class App {
     if(typeof(outlet) === 'string') {
       outlet = document.getElementById(outlet);
     }
-    ReactRouter.run(routes, ReactRouter.HistoryLocation, function(Handler) {
-      return React.render(<Handler/>, outlet);
-    });
+    React.render(<ReactRouter.Router history={History.createHistory()} routes={routes}/>, outlet);
   }
 
 }

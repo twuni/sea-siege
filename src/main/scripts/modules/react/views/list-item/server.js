@@ -5,6 +5,11 @@ import Link from '../../components/link';
 
 class ServerListItemView extends View {
 
+  get url() {
+    let model = this.model;
+    return `/games/${model.gameId}/servers/${model.id}`;
+  }
+
   render() {
 
     let model = this.model;
@@ -13,16 +18,11 @@ class ServerListItemView extends View {
       return <li className={this.classNames}/>
     }
 
-    let params = {
-      gameId: model.gameId,
-      serverId: model.id
-    };
-
     return <li className={this.classNames}>
-      <Link to='server.guilds' params={params}>{model.displayName}</Link>
+      <Link to={`${this.url}/guilds`}>{model.displayName}</Link>
       <span>
-        <IconLink to='server.guilds' params={params} name='tag'/>
-        <IconLink to='server.characters' params={params} name='user'/>
+        <IconLink to={`${this.url}/guilds`} name='tag'/>
+        <IconLink to={`${this.url}/characters`} name='user'/>
       </span>
     </li>
 
