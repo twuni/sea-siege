@@ -5,7 +5,7 @@ const {object} = React.PropTypes;
 class View extends Component {
 
   static get className() {
-    return _.kebabCase(this.name);
+    return `${super.className} view`;
   }
 
   static get propTypes() {

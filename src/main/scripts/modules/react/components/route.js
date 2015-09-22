@@ -9,7 +9,7 @@ const {array, object} = React.PropTypes;
 class Route extends Component {
 
   static get className() {
-    return _.kebabCase(this.name);
+    return `${super.className} route`;
   }
 
   static get contextTypes() {

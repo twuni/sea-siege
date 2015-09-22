@@ -12,13 +12,7 @@ class GameView extends View {
   }
 
   render() {
-
     let model = this.model;
-
-    if(!model.id) {
-      return <section className={this.classNames}/>
-    }
-
     return <section className={this.classNames}>
       <header>
         <h3>{this.renderTitle()}</h3>
@@ -27,7 +21,6 @@ class GameView extends View {
         <Link to={`${this.url}/servers`} label='servers'/>
       </footer>
     </section>
-
   }
 
 }

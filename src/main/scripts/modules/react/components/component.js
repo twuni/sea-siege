@@ -3,7 +3,7 @@ import I18n from '../../i18n';
 class Component extends React.Component {
 
   static get className() {
-    return `${_.kebabCase(this.name)}-component`;
+    return `${_.kebabCase(this.name)} component`;
   }
 
   static get contextTypes() {

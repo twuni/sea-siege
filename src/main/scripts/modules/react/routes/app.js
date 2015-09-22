@@ -30,7 +30,7 @@ class AppRoute extends Route {
   renderHeader() {
     return <Header>
       <Link to='/'>
-        <h3>{this.t('guild_network')}</h3>
+        <h3>{this.t('site_title')}</h3>
         <img src='/assets/logo.png'/>
       </Link>
       <Breadcrumbs routes={this.props.routes}/>

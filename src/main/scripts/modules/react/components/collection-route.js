@@ -4,6 +4,10 @@ const {array} = React.PropTypes;
 
 class CollectionRoute extends Route {
 
+  static get className() {
+    return `${super.className} collection-route`;
+  }
+
   static get propTypes() {
     return Route.withPropTypes({
       collection: array
@@ -35,7 +39,7 @@ class CollectionRoute extends Route {
     return <ul className={this.classNames}>
       {_.compact(_.map(this.collection, (model) => {
         if(View) {
-          return <View key={model.id} model={model}/>
+          return <View key={model.id} {...this.criteria} model={model}/>
         }
         return undefined;
       }))}

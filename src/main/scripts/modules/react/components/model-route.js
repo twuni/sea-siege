@@ -4,6 +4,10 @@ const {object} = React.PropTypes;
 
 class ModelRoute extends Route {
 
+  static get className() {
+    return `${super.className} model-route`;
+  }
+
   static get propTypes() {
     return Route.withPropTypes({
       model: object
@@ -46,7 +50,7 @@ class ModelRoute extends Route {
     if(!View) {
       return super.renderContent();
     }
-    return <View model={this.model}/>
+    return <View {...this.criteria} model={this.model}/>
   }
 
 }

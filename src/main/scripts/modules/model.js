@@ -77,7 +77,8 @@ class Model {
       this.all().catch(reject).then((models) => {
         resolve(models.filter(function(model) {
           for(let key in params) {
-            if(params[key] != model[key]) {
+            let value = model[key];
+            if(value !== undefined && params[key] != value) {
               return false;
             }
           }
@@ -97,6 +98,7 @@ class Model {
   }
 
   constructor(params = {}) {
+    //_.merge(this.constructor, _.pick(Model, 'all', 'clear', 'create', 'deserialize', 'find', 'uniq'));
     _.merge(this, params);
   }
 

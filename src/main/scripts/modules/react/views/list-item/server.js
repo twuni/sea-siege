@@ -1,31 +1,23 @@
-import View from '../../components/view';
+import ListItemView from '../../components/list-item-view';
 
 import IconLink from '../../components/icon-link';
-import Link from '../../components/link';
 
-class ServerListItemView extends View {
+class ServerListItemView extends ListItemView {
 
-  get url() {
+  get baseUrl() {
     let model = this.model;
     return `/games/${model.gameId}/servers/${model.id}`;
   }
 
-  render() {
+  get url() {
+    return `${this.baseUrl}/guilds`;
+  }
 
-    let model = this.model;
-
-    if(!model) {
-      return <li className={this.classNames}/>
-    }
-
-    return <li className={this.classNames}>
-      <Link to={`${this.url}/guilds`}>{model.displayName}</Link>
-      <span>
-        <IconLink to={`${this.url}/guilds`} name='tag'/>
-        <IconLink to={`${this.url}/characters`} name='user'/>
-      </span>
-    </li>
-
+  renderActions() {
+    return <span>
+      <IconLink to={`${this.baseUrl}/guilds`} name='tag'/>
+      <IconLink to={`${this.baseUrl}/characters`} name='user'/>
+    </span>
   }
 
 }

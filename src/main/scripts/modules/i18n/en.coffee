@@ -1,5 +1,6 @@
 strings =
-  guild_network: -> 'The Guild Network'
+  site_title: -> 'The Guild Network'
+  site_introduction: -> 'The Guild Network is a social graph linking characters and guilds together from a diverse set of massively multiplayer online games. Choose a path from the sidebar to get started.'
 
 # Card Rarity
 _.merge strings,
@@ -11,10 +12,10 @@ _.merge strings,
 # Models
 _.merge strings,
   cards: -> 'Cards'
-  games: -> 'Games'
-  servers: -> 'Servers'
-  players: -> 'Players'
-  guilds: -> 'Guilds'
   characters: -> 'Characters'
+  games: -> 'Games'
+  guilds: -> 'Guilds'
+  players: -> 'Players'
+  servers: -> 'Servers'
 
 `export default strings`

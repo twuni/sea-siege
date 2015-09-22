@@ -1,7 +1,7 @@
 import CollectionRoute from '../../components/collection-route';
 
-import GameModel from '../../../models/game'
-import GameView from '../../views/list-item/game'
+import GameModel from '../../../models/game';
+import GameView from '../../views/list-item/game';
 
 class GamesIndexRoute extends CollectionRoute {
 
