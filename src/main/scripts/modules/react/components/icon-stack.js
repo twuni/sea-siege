@@ -1,10 +1,12 @@
 import Component from './component';
 
+const {oneOf} = React.PropTypes;
+
 class IconStack extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      scale: React.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x'])
+      scale: oneOf(['lg', '2x', '3x', '4x', '5x'])
     });
   }
 

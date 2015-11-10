@@ -1,16 +1,18 @@
 import Component from './component';
 
+const {bool, oneOf, string} = React.PropTypes;
+
 class Icon extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      name: React.PropTypes.string.isRequired,
-      animation: React.PropTypes.oneOf(['spin', 'pulse']),
-      rotation: React.PropTypes.oneOf([90, 180, 270]),
-      translation: React.PropTypes.oneOf(['flip-horizontal', 'flip-vertical']),
-      scale: React.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
-      invert: React.PropTypes.bool,
-      stackScale: React.PropTypes.oneOf(['1x', '2x'])
+      name: string.isRequired,
+      animation: oneOf(['spin', 'pulse']),
+      rotation: oneOf([90, 180, 270]),
+      translation: oneOf(['flip-horizontal', 'flip-vertical']),
+      scale: oneOf(['lg', '2x', '3x', '4x', '5x']),
+      invert: bool,
+      stackScale: oneOf(['1x', '2x'])
     });
   }
 
