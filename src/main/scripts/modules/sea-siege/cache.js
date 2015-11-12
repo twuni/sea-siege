@@ -29,7 +29,7 @@ class Cache {
   }
 
   isCached(key) {
-    return this.fetch(key) === undefined;
+    return this.fetch(key) !== undefined;
   }
 
   save(key, value, lifespan) {

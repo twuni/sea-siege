@@ -1,5 +1,3 @@
-'use strict';
-
 const merge = require('broccoli-merge-trees');
 
 const scripts = require('./broccoli/scripts');

@@ -5,5 +5,5 @@ const dependencies = require('./static/dependencies');
 
 module.exports = merge([
   dependencies,
-  'src/main/static'
+  'src/test/static'
 ]);

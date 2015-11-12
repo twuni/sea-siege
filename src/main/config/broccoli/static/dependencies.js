@@ -1,3 +1,5 @@
+'use strict';
+
 const funnel = require('broccoli-funnel');
 const merge = require('broccoli-merge-trees');
 
@@ -12,10 +14,6 @@ const fontAwesome = funnel('node_modules/font-awesome', {
   ]
 });
 
-var tree;
-
-tree = merge([
+module.exports = merge([
   fontAwesome
 ]);
-
-module.exports = tree;

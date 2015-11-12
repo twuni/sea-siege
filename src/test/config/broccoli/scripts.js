@@ -2,29 +2,26 @@
 
 const concat = require('broccoli-concat');
 const merge = require('broccoli-merge-trees');
-const uglify = require('broccoli-uglify-js');
 
 const dependencies = require('./scripts/dependencies');
-const modules = require('./scripts/modules');
-const main = require('./scripts/main');
+const helpers = require('./scripts/helpers');
+const specs = require('./scripts/specs');
 
 const pkg = require('../../../../package.json');
 
 let tree = merge([
   dependencies,
-  modules,
-  main
+  helpers,
+  specs
 ]);
 
 tree = concat(tree, {
   inputFiles: [
     'dependencies.js',
-    'modules.js',
-    'main.js'
+    'helpers.js',
+    'specs.js'
   ],
-  outputFile: '/' + pkg.name + '.js'
+  outputFile: '/' + pkg.name + '-test.js'
 });
-
-tree = uglify(tree);
 
 module.exports = tree;

@@ -1,1 +1,1 @@
-module.exports = require('./src/main/config/broccoli');
+module.exports = require('./src/broccoli');
