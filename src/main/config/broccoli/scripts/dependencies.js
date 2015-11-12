@@ -5,7 +5,7 @@ module.exports = concat('node_modules', {
     'history/umd/History.js',
     'lodash/index.js',
     'react/dist/react.js',
-    'react/dist/react-dom.js',
+    'react-dom/dist/react-dom.js',
     'react-router/umd/ReactRouter.js',
     'requirejs/require.js'
   ],
