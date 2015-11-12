@@ -2,7 +2,7 @@ describe('Cache', function() {
 
   var cache;
 
-  beforeEach(function(done) {
+  beforeEach('Instantiate a Cache', function(done) {
     require(['sea-siege/cache'], function(Cache) {
       cache = new Cache();
       done();
