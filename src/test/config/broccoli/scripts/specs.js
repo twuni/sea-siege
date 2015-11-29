@@ -4,7 +4,7 @@ const babel = require('broccoli-babel-transpiler');
 const concat = require('broccoli-concat');
 const wrap = require('broccoli-wrap');
 
-let specs = 'src/test/scripts';
+let specs = 'src/test/scripts/specs';
 
 specs = concat(specs, {
   inputFiles: [
@@ -20,8 +20,8 @@ specs = babel(specs, {
 
 specs = wrap(specs, {
   wrapper: [
-    'mocha.setup("bdd");expect=chai.expect;',
-    'mocha.run();'
+    'mocha.setup("lazy-bdd");expect=chai.expect;require(["sea-siege"], function(library) {',
+    'mocha.run();});'
   ]
 });
 

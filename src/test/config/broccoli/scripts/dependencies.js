@@ -8,6 +8,7 @@ let tree = 'node_modules';
 tree = concat(tree, {
   inputFiles: [
     'mocha/mocha.js',
+    'mocha-lazy-bdd/dist/mocha-lazy-bdd.js',
     'chai/chai.js',
     'chai-as-promised/lib/chai-as-promised.js'
   ],

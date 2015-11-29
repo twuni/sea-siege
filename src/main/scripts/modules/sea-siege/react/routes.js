@@ -27,8 +27,7 @@ import GameServerGuildsIndex from './routes/game/server/guilds/index';
 
 import GameServerGuild from './routes/game/server/guild';
 
-let Route = ReactRouter.Route;
-let IndexRoute = ReactRouter.IndexRoute;
+const {Route, IndexRoute} = ReactRouter;
 
 export default <Route path='/' component={App}>
   <IndexRoute component={AppIndex}/>

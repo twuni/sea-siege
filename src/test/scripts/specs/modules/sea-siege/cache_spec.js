@@ -1,20 +1,23 @@
 describe('Cache', function() {
 
-  var cache;
+  lazy('Cache', function() {
+    return library.Cache;
+  });
 
-  beforeEach('Instantiate a Cache', function(done) {
-    require(['sea-siege/cache'], function(Cache) {
-      cache = new Cache();
-      done();
-    });
+  lazy('cache', function() {
+    return new this.Cache();
   });
 
   describe('#fetch', function() {
 
+    subject(function() {
+      return this.cache.fetch('foo');
+    });
+
     context('when no cache entry exists for the given key', function() {
 
-      it('should return undefined', function() {
-        expect(cache.fetch('foo')).to.be.undefined;
+      it('should be undefined', function() {
+        expect(this.subject).to.be.undefined;
       });
 
     });
@@ -22,11 +25,11 @@ describe('Cache', function() {
     context('when a cache entry exists for the given key', function() {
 
       beforeEach(function() {
-        cache.save('foo', 'bar');
+        this.cache.save('foo', 'bar');
       });
 
-      it('should return the existing value', function() {
-        expect(cache.fetch('foo')).to.equal('bar');
+      it('should equal the existing value', function() {
+        expect(this.subject).to.equal('bar');
       });
 
     });
@@ -35,11 +38,15 @@ describe('Cache', function() {
 
   describe('#invalidate', function() {
 
+    subject(function() {
+      return this.cache.invalidate('foo');
+    });
+
     context('when no cache entry exists for the given key', function() {
 
       it('should leave the value for the key as undefined', function() {
-        cache.invalidate('foo');
-        expect(cache.fetch('foo')).to.be.undefined;
+        this.subject;
+        expect(this.cache.fetch('foo')).to.be.undefined;
       });
 
     });
@@ -47,12 +54,12 @@ describe('Cache', function() {
     context('when a cache entry exists for the given key', function() {
 
       beforeEach(function() {
-        cache.save('foo', 'bar');
+        this.cache.save('foo', 'bar');
       });
 
       it('should remove the existing value', function() {
-        cache.invalidate('foo');
-        expect(cache.fetch('foo')).to.be.undefined;
+        this.subject;
+        expect(this.cache.fetch('foo')).to.be.undefined;
       });
 
     });
@@ -61,10 +68,14 @@ describe('Cache', function() {
 
   describe('#isCached', function() {
 
+    subject(function() {
+      return this.cache.isCached('foo');
+    });
+
     context('when no cache entry exists for the given key', function() {
 
       it('should return false', function() {
-        expect(cache.isCached('foo')).to.be.false;
+        expect(this.subject).to.be.false;
       });
 
     });
@@ -72,11 +83,11 @@ describe('Cache', function() {
     context('when a cache entry exists for the given key', function() {
 
       beforeEach(function() {
-        cache.save('foo', 'bar');
+        this.cache.save('foo', 'bar');
       });
 
       it('should return true', function() {
-        expect(cache.isCached('foo')).to.be.true;
+        expect(this.subject).to.be.true;
       });
 
     });
@@ -85,24 +96,25 @@ describe('Cache', function() {
 
   describe('#save', function() {
 
+    subject(function() {
+      return this.cache.save('foo', 'bar');
+    });
+
     context('when no cache entry exists for the given key', function() {
 
       it('should set the value', function() {
-        cache.save('foo', 'bar');
-        expect(cache.fetch('foo')).to.equal('bar');
+        this.subject;
+        expect(this.cache.fetch('foo')).to.equal('bar');
       });
 
     });
 
     context('when a cache entry exists for the given key', function() {
 
-      beforeEach(function() {
-        cache.save('foo', 'bar');
-      });
-
       it('should set the value to the new value', function() {
-        cache.save('foo', 'baz');
-        expect(cache.fetch('foo')).to.equal('baz');
+        this.subject;
+        this.cache.save('foo', 'baz');
+        expect(this.cache.fetch('foo')).to.equal('baz');
       });
 
     });
