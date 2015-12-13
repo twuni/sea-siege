@@ -7,7 +7,12 @@ import Server from './server';
 class Character extends Model {
 
   static get attributes() {
-    return ['id', 'displayName', 'playerId', 'serverId'];
+    return [
+      'id',
+      'displayName',
+      'playerId',
+      'serverId'
+    ];
   }
 
   get player() {

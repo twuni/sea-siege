@@ -5,7 +5,10 @@ import Character from './character';
 class Player extends Model {
 
   static get attributes() {
-    return ['id', 'displayName'];
+    return [
+      'id',
+      'displayName'
+    ];
   }
 
   get characters() {

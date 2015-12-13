@@ -7,7 +7,11 @@ import Guild from './guild';
 class Server extends Model {
 
   static get attributes() {
-    return ['id', 'displayName', 'gameId'];
+    return [
+      'id',
+      'displayName',
+      'gameId'
+    ];
   }
 
   get characters() {

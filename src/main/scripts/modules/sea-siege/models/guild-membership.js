@@ -6,7 +6,12 @@ import Guild from './guild';
 class GuildMembership extends Model {
 
   static get attributes() {
-    return ['id', 'title', 'guildId', 'characterId'];
+    return [
+      'id',
+      'title',
+      'guildId',
+      'characterId'
+    ];
   }
 
   get guild() {

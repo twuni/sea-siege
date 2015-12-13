@@ -5,7 +5,11 @@ import Server from './server';
 class Game extends Model {
 
   static get attributes() {
-    return ['id', 'displayName', 'logoUrl'];
+    return [
+      'id',
+      'displayName',
+      'logoUrl'
+    ];
   }
 
   get servers() {
