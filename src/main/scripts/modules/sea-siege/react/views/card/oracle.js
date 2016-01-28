@@ -1,15 +1,19 @@
+import React from 'react';
+
 import Component from '../../components/component';
+
+const {element, oneOfType, string} = React.PropTypes;
 
 class Oracle extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      description: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.element
+      description: oneOfType([
+        string,
+        element
       ]),
-      quote: React.PropTypes.string,
-      author: React.PropTypes.string
+      quote: string,
+      author: string
     });
   }
 

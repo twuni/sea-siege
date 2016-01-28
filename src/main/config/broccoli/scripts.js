@@ -1,8 +1,8 @@
 'use strict';
 
 const concat = require('broccoli-concat');
+const funnel = require('broccoli-funnel');
 const merge = require('broccoli-merge-trees');
-const uglify = require('broccoli-uglify-js');
 
 const dependencies = require('./scripts/dependencies');
 const modules = require('./scripts/modules');
@@ -16,15 +16,11 @@ let tree = merge([
   main
 ]);
 
-tree = concat(tree, {
-  inputFiles: [
-    'dependencies.js',
-    'modules.js',
-    'main.js'
-  ],
-  outputFile: '/' + pkg.name + '.js'
-});
+//const uglify = require('broccoli-uglify-js');
+//tree = uglify(tree);
 
-tree = uglify(tree);
+tree = funnel(tree, {
+  destDir: 'assets/scripts'
+});
 
 module.exports = tree;

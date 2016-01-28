@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Route from '../../components/route';
 
 class AppIndexRoute extends Route {

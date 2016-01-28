@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import English from './i18n/en';
 
 export default class I18n {

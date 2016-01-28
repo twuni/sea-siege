@@ -1,3 +1,5 @@
+import React from 'react';
+
 import ListItemView from '../../components/list-item-view';
 
 import IconLink from '../../components/icon-link';

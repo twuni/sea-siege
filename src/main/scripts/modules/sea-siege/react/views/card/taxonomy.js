@@ -1,15 +1,19 @@
+import React from 'react';
+
 import Component from '../../components/component';
 
 import EditionIcon from './edition-icon';
+
+const {string} = React.PropTypes;
 
 class Taxonomy extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      mainType: React.PropTypes.string.isRequired,
-      secondaryType: React.PropTypes.string,
-      rarity: React.PropTypes.string.isRequired,
-      edition: React.PropTypes.string.isRequired
+      mainType: string.isRequired,
+      secondaryType: string,
+      rarity: string.isRequired,
+      edition: string.isRequired
     });
   }
 

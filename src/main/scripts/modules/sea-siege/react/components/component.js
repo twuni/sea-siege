@@ -1,3 +1,6 @@
+import React from 'react';
+import _ from 'lodash';
+
 import I18n from '../../i18n';
 
 class Component extends React.Component {

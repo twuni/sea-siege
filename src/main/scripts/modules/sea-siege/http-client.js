@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import Cache from './cache';
 
 class HTTPClient {

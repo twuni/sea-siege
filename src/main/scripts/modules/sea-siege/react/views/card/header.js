@@ -1,13 +1,17 @@
+import React from 'react';
+
 import Component from '../../components/component';
 
 import ManaCost from './mana-cost';
+
+const {object, string} = React.PropTypes;
 
 class Header extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      title: React.PropTypes.string.isRequired,
-      cost: React.PropTypes.object
+      title: string.isRequired,
+      cost: object
     });
   }
 

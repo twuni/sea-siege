@@ -1,3 +1,5 @@
+import React from 'react';
+
 import View from '../components/view';
 
 import Header from './card/header';

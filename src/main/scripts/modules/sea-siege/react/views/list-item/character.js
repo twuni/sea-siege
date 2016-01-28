@@ -1,5 +1,7 @@
 import ListItemView from '../../components/list-item-view';
 
+import React from 'react';
+
 const {string} = React.PropTypes;
 
 class CharacterListItemView extends ListItemView {

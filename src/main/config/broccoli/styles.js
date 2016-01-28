@@ -1,7 +1,7 @@
 'use strict';
 
-const clean = require('broccoli-clean-css');
 const concat = require('broccoli-concat');
+const funnel = require('broccoli-funnel');
 const merge = require('broccoli-merge-trees');
 
 const dependencies = require('./styles/dependencies');
@@ -22,6 +22,11 @@ tree = concat(tree, {
   outputFile: '/' + pkg.name + '.css'
 });
 
-tree = clean(tree);
+//const clean = require('broccoli-clean-css');
+//tree = clean(tree);
+
+tree = funnel(tree, {
+  destDir: 'assets/stylesheets'
+});
 
 module.exports = tree;

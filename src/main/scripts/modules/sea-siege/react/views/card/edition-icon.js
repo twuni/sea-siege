@@ -1,12 +1,16 @@
+import React from 'react';
+
 import Component from '../../components/component';
 
 import Icon from '../../components/icon';
+
+const {string} = React.PropTypes;
 
 class EditionIcon extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      edition: React.PropTypes.string.isRequired
+      edition: string.isRequired
     });
   }
 

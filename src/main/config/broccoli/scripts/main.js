@@ -2,14 +2,12 @@
 
 const babel = require('broccoli-babel-transpiler');
 const concat = require('broccoli-concat');
+const funnel = require('broccoli-funnel');
 
 let main = 'src/main/scripts';
 
-main = concat(main, {
-  inputFiles: [
-    'main.js'
-  ],
-  outputFile: '/main.js'
+main = funnel(main, {
+  include: ['main.js']
 });
 
 main = babel(main, {

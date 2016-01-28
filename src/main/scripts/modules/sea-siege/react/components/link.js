@@ -1,8 +1,16 @@
+import React from 'react';
+import _ from 'lodash';
+import {Link} from 'react-router';
+
 import Component from './component';
 
 const {func, object, string} = React.PropTypes;
 
-class Link extends Component {
+class LinkComponent extends Component {
+
+  static get className() {
+    return 'link component';
+  }
 
   static get propTypes() {
     return Component.withPropTypes({
@@ -18,11 +26,11 @@ class Link extends Component {
     let props = _.omit(this.props, 'label');
     let label = this.props.label;
     if(_.isEmpty(this.props.children)) {
-      return <ReactRouter.Link {...props} className={this.classNames} activeClassName='active'>{this.t(label)}</ReactRouter.Link>
+      return <Link {...props} className={this.classNames} activeClassName='active'>{this.t(label)}</Link>
     }
-    return <ReactRouter.Link {...props} className={this.classNames} activeClassName='active'>{this.props.children}</ReactRouter.Link>
+    return <Link {...props} className={this.classNames} activeClassName='active'>{this.props.children}</Link>
   }
 
 }
 
-export default Link;
+export default LinkComponent;

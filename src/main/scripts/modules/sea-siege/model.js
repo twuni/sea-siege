@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import HTTPClient from './http-client';
 
 class Model {

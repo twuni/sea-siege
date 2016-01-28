@@ -1,4 +1,8 @@
-import routes from './react/routes';
+import React from 'react';
+import {render} from 'react-dom';
+import {Router, browserHistory} from 'react-router';
+
+import router from './react/router';
 
 class App {
 
@@ -6,7 +10,7 @@ class App {
     if(typeof(outlet) === 'string') {
       outlet = document.getElementById(outlet);
     }
-    ReactDOM.render(<ReactRouter.Router history={History.createHistory()} routes={routes}/>, outlet);
+    render(<Router history={browserHistory} routes={router}/>, outlet);
   }
 
 }

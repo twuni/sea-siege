@@ -1,17 +1,22 @@
+import React from 'react';
+import _ from 'lodash';
+
 import Component from '../../components/component';
 
 import Icon from '../../components/icon';
+
+const {number} = React.PropTypes;
 
 class ManaCost extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      red: React.PropTypes.number,
-      blue: React.PropTypes.number,
-      black: React.PropTypes.number,
-      white: React.PropTypes.number,
-      green: React.PropTypes.number,
-      any: React.PropTypes.number
+      red: number,
+      blue: number,
+      black: number,
+      white: number,
+      green: number,
+      any: number
     });
   }
 

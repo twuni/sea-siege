@@ -1,3 +1,5 @@
+import React from 'react';
+
 import View from '../components/view';
 
 class CharacterView extends View {

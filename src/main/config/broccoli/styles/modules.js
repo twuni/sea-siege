@@ -6,16 +6,10 @@ const concat = require('broccoli-concat');
 
 let tree = 'src/main/styles';
 
-tree = stylus(tree, {
-  use: [
-    nib
-  ]
-});
+tree = stylus(tree, {use: [nib]});
 
 tree = concat(tree, {
-  inputFiles: [
-    '**/*.css'
-  ],
+  inputFiles: ['**/*.css'],
   outputFile: '/modules.css'
 });
 

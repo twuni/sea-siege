@@ -1,12 +1,16 @@
+import React from 'react';
+
 import Component from '../../components/component';
+
+const {string} = React.PropTypes;
 
 class Footer extends Component {
 
   static get propTypes() {
     return Component.withPropTypes({
-      artist: React.PropTypes.string.isRequired,
-      power: React.PropTypes.string,
-      toughness: React.PropTypes.string
+      artist: string.isRequired,
+      power: string,
+      toughness: string
     });
   }
 

@@ -1,3 +1,6 @@
+import _ from 'lodash';
+import React from 'react';
+
 import Route from './route';
 
 const {array} = React.PropTypes;

@@ -1,3 +1,6 @@
+import React from 'react';
+import _ from 'lodash';
+
 import View from './view';
 
 import Link from './link';

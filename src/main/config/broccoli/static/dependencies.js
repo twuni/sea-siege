@@ -11,7 +11,8 @@ const fontAwesome = funnel('node_modules/font-awesome', {
     'fonts/fontawesome-webfont.woff',
     'fonts/fontawesome-webfont.woff2',
     'fonts/FontAwesome.otf'
-  ]
+  ],
+  destDir: 'assets'
 });
 
 module.exports = merge([

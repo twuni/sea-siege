@@ -1,5 +1,8 @@
 import Component from './component';
 
+import _ from 'lodash';
+import React from 'react';
+
 const {object} = React.PropTypes;
 
 class View extends Component {

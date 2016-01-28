@@ -15,11 +15,4 @@ tree = babel(tree, {
   stage: 0
 });
 
-tree = concat(tree, {
-  inputFiles: [
-    '**/*.js'
-  ],
-  outputFile: '/modules.js'
-});
-
 module.exports = tree;

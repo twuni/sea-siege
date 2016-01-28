@@ -1,4 +1,8 @@
+import React from 'react';
+import _ from 'lodash';
+
 import Component from './component';
+
 import Link from './link';
 import Icon from './icon';
 

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Route from '../components/route';
 
 import Breadcrumbs from '../components/breadcrumbs';

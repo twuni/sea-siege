@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Component from './component';
 
 import Link from './link';
@@ -18,9 +20,12 @@ class Breadcrumbs extends Component {
   }
 
   renderBreadcrumb(route) {
-    // FIXME: Route#breadcrumb is only accessible on an instance of Route.
-    // Here, `route.component` only gives us a reference to the class.
-    return route.component.breadcrumb;
+    if(typeof(route.component) === 'function') {
+      // FIXME: Route#breadcrumb is only accessible on an instance of Route.
+      // Here, `route.component` only gives us a reference to the class.
+      return route.component.breadcrumb;
+    }
+    return route.breadcrumb;
   }
 
   render() {
