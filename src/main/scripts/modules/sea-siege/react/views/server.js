@@ -6,15 +6,25 @@ import Link from '../components/link';
 
 class ServerView extends View {
 
+  get charactersUrl() {
+    return `${this.url}/characters`;
+  }
+
+  get guildsUrl() {
+    return `${this.url}/guilds`;
+  }
+
   get url() {
-    let model = this.model;
-    return `/games/${model.gameId}/servers/${model.id}`;
+    const {model} = this;
+    const {gameId, id} = model;
+    return `/games/${gameId}/servers/${id}`;
   }
 
   render() {
-    return <div className={this.classNames}>
-      <Link to={`${this.url}/guilds`} label='guilds'/>
-      <Link to={`${this.url}/characters`} label='characters'/>
+    const {classNames, charactersUrl, guildsUrl} = this;
+    return <div className={classNames}>
+      <Link to={guildsUrl} label='guilds'/>
+      <Link to={charactersUrl} label='characters'/>
     </div>
   }
 

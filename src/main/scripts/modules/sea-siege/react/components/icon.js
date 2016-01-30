@@ -18,31 +18,36 @@ class Icon extends Component {
     });
   }
 
+  get classNames() {
+    return `${super.classNames} ${this.fontAwesomeClassNames}`;
+  }
+
   get fontAwesomeClassNames() {
-    let classNames = ['fa', `fa-${this.props.name}`];
-    if(this.props.animation) {
-      classNames.push(`fa-${this.props.animation}`);
+    const {props} = this;
+    const classNames = ['fa', `fa-${props.name}`];
+    if(props.animation) {
+      classNames.push(`fa-${props.animation}`);
     }
-    if(this.props.scale) {
-      classNames.push(`fa-${this.props.scale}`);
+    if(props.scale) {
+      classNames.push(`fa-${props.scale}`);
     }
-    if(this.props.rotation) {
-      classNames.push(`fa-rotate-${this.props.rotation}`);
+    if(props.rotation) {
+      classNames.push(`fa-rotate-${props.rotation}`);
     }
-    if(this.props.translation) {
-      classNames.push(`fa-${this.props.translation}`);
+    if(props.translation) {
+      classNames.push(`fa-${props.translation}`);
     }
-    if(this.props.invert) {
+    if(props.invert) {
       classNames.push('fa-inverse');
     }
-    if(this.props.stackScale) {
-      classNames.push(`fa-stack-${this.props.stackScale}`);
+    if(props.stackScale) {
+      classNames.push(`fa-stack-${props.stackScale}`);
     }
     return classNames.join(' ');
   }
 
   render() {
-    return <i className={`${this.classNames} ${this.fontAwesomeClassNames}`}/>
+    return <i className={this.classNames}/>
   }
 }
 

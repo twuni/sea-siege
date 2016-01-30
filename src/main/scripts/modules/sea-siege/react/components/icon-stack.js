@@ -13,16 +13,18 @@ class IconStack extends Component {
   }
 
   get fontAwesomeClassNames() {
-    let classNames = ['fa', 'fa-stack'];
-    if(this.props.scale) {
-      classNames.push(`fa-${this.props.scale}`);
+    const classNames = ['fa', 'fa-stack'];
+    const {scale} = this.props;
+    if(scale) {
+      classNames.push(`fa-${scale}`);
     }
     return classNames.join(' ');
   }
 
   render() {
-    return <i className={`${this.classNames} ${this.fontAwesomeClassNames}`}>
-      {this.props.children}
+    const {classNames, fontAwesomeClassNames, props} = this;
+    return <i className={`${classNames} ${fontAwesomeClassNames}`}>
+      {props.children}
     </i>
   }
 

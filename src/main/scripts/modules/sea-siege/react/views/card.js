@@ -11,11 +11,11 @@ import Footer from './card/footer';
 class CardView extends View {
 
   render() {
-    let model = this.model;
+    const {classNames, model} = this;
     if(!model.id) {
-      return <div className={this.classNames}/>
+      return <div className={classNames}/>
     }
-    return <div className={this.classNames}>
+    return <div className={classNames}>
       <Header title={model.title} cost={model.cost}/>
       <Artwork url={model.artwork}/>
       <Taxonomy mainType={model.mainType} secondaryType={model.secondaryType} rarity={model.rarity} edition={model.edition}/>

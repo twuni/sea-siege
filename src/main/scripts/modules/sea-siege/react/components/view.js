@@ -22,7 +22,7 @@ class View extends Component {
   }
 
   get url() {
-    let model = this.model;
+    const {model} = this;
     return `/${model.constructor.typeKey}/${model.id}`;
   }
 

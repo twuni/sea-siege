@@ -23,12 +23,13 @@ class LinkComponent extends Component {
   }
 
   render() {
-    let props = _.omit(this.props, 'label');
-    let label = this.props.label;
-    if(_.isEmpty(this.props.children)) {
-      return <Link {...props} className={this.classNames} activeClassName='active'>{this.t(label)}</Link>
+    const {classNames, props} = this;
+    const {children, label} = props;
+    const linkProps = _.omit(props, 'label');
+    if(_.isEmpty(children)) {
+      return <Link {...linkProps} className={classNames} activeClassName='active'>{this.t(label)}</Link>
     }
-    return <Link {...props} className={this.classNames} activeClassName='active'>{this.props.children}</Link>
+    return <Link {...linkProps} className={classNames} activeClassName='active'>{children}</Link>
   }
 
 }

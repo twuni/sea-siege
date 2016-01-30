@@ -17,7 +17,7 @@ class Header extends Component {
   }
 
   renderTitle() {
-    let title = this.title;
+    const {title} = this;
     if(title) {
       return <h3>{title}</h3>
     }

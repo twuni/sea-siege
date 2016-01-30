@@ -12,7 +12,7 @@ class ListItemView extends View {
   }
 
   get displayName() {
-    let model = this.model;
+    const {model} = this;
     return model.displayName || model.title;
   }
 
@@ -21,8 +21,9 @@ class ListItemView extends View {
   }
 
   render() {
-    return <li className={this.classNames}>
-      <Link to={this.url}>{this.displayName}</Link>
+    const {classNames, displayName, url} = this;
+    return <li className={classNames}>
+      <Link to={url}>{displayName}</Link>
       {this.renderActions()}
     </li>
   }

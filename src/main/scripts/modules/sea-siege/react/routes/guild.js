@@ -1,7 +1,7 @@
-import ModelRoute from '../../../components/model-route';
+import ModelRoute from '../components/model-route';
 
-import GuildModel from '../../../../models/guild';
-import GuildView from '../../../views/guild';
+import GuildModel from '../../models/guild';
+import GuildView from '../views/guild';
 
 class GameServerGuildRoute extends ModelRoute {
 

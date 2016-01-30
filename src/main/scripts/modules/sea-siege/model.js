@@ -80,8 +80,10 @@ class Model {
         resolve(models.filter(function(model) {
           for(let key in params) {
             let value = model[key];
-            if(value !== undefined && params[key] != value) {
-              return false;
+            if(value !== undefined) {
+              if(params[key] !== value) {
+                return false;
+              }
             }
           }
           return true;
@@ -130,9 +132,9 @@ class Model {
 
   serialize() {
     return new Promise((resolve, reject) => {
-      let attributes = this.constructor.attributes;
-      let args = [this].concat(attributes);
-      let serial = _.pick.apply(_, args);
+      const {attributes} = this.constructor;
+      const args = [this].concat(attributes);
+      const serial = _.pick.apply(_, args);
       resolve(serial);
     });
   }

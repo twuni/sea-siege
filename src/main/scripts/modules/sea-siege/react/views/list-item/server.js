@@ -7,8 +7,17 @@ import IconLink from '../../components/icon-link';
 class ServerListItemView extends ListItemView {
 
   get baseUrl() {
-    let model = this.model;
-    return `/games/${model.gameId}/servers/${model.id}`;
+    const {model} = this;
+    const {gameId, id} = model;
+    return `/games/${gameId}/servers/${id}`;
+  }
+
+  get charactersUrl() {
+    return `${this.baseUrl}/characters`;
+  }
+
+  get guildsUrl() {
+    return `${this.baseUrl}/guilds`;
   }
 
   get url() {
@@ -17,8 +26,8 @@ class ServerListItemView extends ListItemView {
 
   renderActions() {
     return <span>
-      <IconLink to={`${this.baseUrl}/guilds`} name='tag'/>
-      <IconLink to={`${this.baseUrl}/characters`} name='user'/>
+      <IconLink to={this.guildsUrl} name='tag'/>
+      <IconLink to={this.charactersUrl} name='user'/>
     </span>
   }
 

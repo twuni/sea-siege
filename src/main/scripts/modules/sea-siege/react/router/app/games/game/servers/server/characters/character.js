@@ -1,3 +1,3 @@
-import LazyRoute from '../../../../../../lazy-route';
+import {ModelRoute} from '../../../../../../lazy-route';
 
-export default new LazyRoute(':characterId', 'game/server/character');
+export default new ModelRoute('character');

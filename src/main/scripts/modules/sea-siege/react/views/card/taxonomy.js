@@ -17,20 +17,29 @@ class Taxonomy extends Component {
     });
   }
 
-  getType() {
-    var type;
-    type = this.props.mainType;
-    if(this.props.secondaryType) {
-      type += ' – ' + this.props.secondaryType;
+  get edition() {
+    return this.props.edition;
+  }
+
+  get rarity() {
+    return this.props.rarity;
+  }
+
+  get type() {
+    const {props} = this;
+    const {mainType, secondaryType} = props;
+    if(secondaryType) {
+      return `${mainType} – ${secondaryType}`;
     }
-    return type;
+    return mainType;
   }
 
   render() {
-    return <section className={this.classNames}>
-      <span className='type'>{this.getType()}</span>
-      <aside className={this.props.rarity}>
-        <EditionIcon edition={this.props.edition}/>
+    const {classNames, edition, rarity, type} = this;
+    return <section className={classNames}>
+      <span className='type'>{type}</span>
+      <aside className={rarity}>
+        <EditionIcon edition={edition}/>
       </aside>
     </section>
   }

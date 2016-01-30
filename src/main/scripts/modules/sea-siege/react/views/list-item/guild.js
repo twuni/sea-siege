@@ -13,9 +13,10 @@ class GuildListItemView extends ListItemView {
   }
 
   get url() {
-    let model = this.model;
-    let props = this.props;
-    return `/games/${props.gameId}/servers/${model.serverId}/guilds/${model.id}`;
+    const {model, props} = this;
+    const {gameId} = props;
+    const {serverId, id} = model;
+    return `/games/${gameId}/servers/${serverId}/guilds/${id}`;
   }
 
 }

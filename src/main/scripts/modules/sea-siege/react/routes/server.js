@@ -1,6 +1,6 @@
-import ModelRoute from '../../components/model-route';
+import ModelRoute from '../components/model-route';
 
-import ServerModel from '../../../models/server';
+import ServerModel from '../../models/server';
 
 class GameServerRoute extends ModelRoute {
 

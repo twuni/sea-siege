@@ -9,19 +9,19 @@ class HTTPClient {
 
   execute(method, uri, options = {}) {
 
-    const cache = this.cache;
+    const {cache} = this;
     const signature = `${method} ${uri}`;
 
     return new Promise(function(resolve, reject) {
 
-      let response = cache.fetch(signature);
+      const response = cache.fetch(signature);
 
       if(response !== undefined) {
         resolve(response);
         return;
       }
 
-      let request = new XMLHttpRequest();
+      const request = new XMLHttpRequest();
 
       request.open(method, uri, true);
 

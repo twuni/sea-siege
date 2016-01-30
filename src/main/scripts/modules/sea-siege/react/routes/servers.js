@@ -1,4 +1,4 @@
-import Route from '../../components/route';
+import Route from '../components/route';
 
 class GameServersRoute extends Route {
 

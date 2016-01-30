@@ -1,7 +1,7 @@
-import ModelRoute from '../../../components/model-route';
+import ModelRoute from '../components/model-route';
 
-import CharacterModel from '../../../../models/character';
-import CharacterView from '../../../views/character';
+import CharacterModel from '../../models/character';
+import CharacterView from '../views/character';
 
 class GameServerCharacterRoute extends ModelRoute {
 

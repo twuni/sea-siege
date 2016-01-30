@@ -1,7 +1,7 @@
-import CollectionRoute from '../../../components/collection-route';
+import CollectionRoute from '../../components/collection-route';
 
-import ServerModel from '../../../../models/server';
-import ServerView from '../../../views/list-item/server';
+import ServerModel from '../../../models/server';
+import ServerView from '../../views/list-item/server';
 
 class GameServersIndexRoute extends CollectionRoute {
 

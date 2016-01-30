@@ -1,7 +1,7 @@
-import CollectionRoute from '../../../../components/collection-route';
+import CollectionRoute from '../../components/collection-route';
 
-import GuildModel from '../../../../../models/guild';
-import GuildView from '../../../../views/list-item/guild';
+import GuildModel from '../../../models/guild';
+import GuildView from '../../views/list-item/guild';
 
 class GameServerGuildsIndexRoute extends CollectionRoute {
 

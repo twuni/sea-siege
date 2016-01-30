@@ -13,8 +13,7 @@ class CharacterListItemView extends ListItemView {
   }
 
   get url() {
-    let model = this.model;
-    let props = this.props;
+    const {model, props} = this;
     return `/games/${props.gameId}/servers/${model.serverId}/characters/${model.id}`;
   }
 

@@ -11,9 +11,9 @@ class GameListItemView extends ListItemView {
   }
 
   renderActions() {
-    let model = this.model;
+    const {url} = this;
     return <span>
-      <IconLink to={this.url} name='cube'/>
+      <IconLink to={url} name='cube'/>
     </span>
   }
 

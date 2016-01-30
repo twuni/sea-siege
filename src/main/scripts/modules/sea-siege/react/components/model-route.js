@@ -26,21 +26,24 @@ class ModelRoute extends Route {
   }
 
   get model() {
-    return (this.state && this.state.model) || (this.props && this.props.model) || {};
+    const {props, state} = this;
+    return (state && state.model) || (props && props.model) || {};
   }
 
   get title() {
-    return (this.model && this.model.displayName) || super.title;
+    const {model} = this;
+    return (model && model.displayName) || super.title;
   }
 
   load() {
 
-    let Model = this.constructor.modelClass;
-    let params = (this.props && this.props.params);
+    const Model = this.constructor.modelClass;
+    const {props} = this;
+    const {params} = props || {};
 
     if(Model && params) {
-      let keyForId = `${_.camelCase(Model.name)}Id`;
-      let id = params[keyForId];
+      const keyForId = `${_.camelCase(Model.name)}Id`;
+      const id = params[keyForId];
       return Model.uniq({id});
     }
 
@@ -49,11 +52,12 @@ class ModelRoute extends Route {
   }
 
   renderContent() {
-    let View = this.constructor.viewClass;
+    const View = this.constructor.viewClass;
     if(!View) {
       return super.renderContent();
     }
-    return <View {...this.criteria} model={this.model}/>
+    const {criteria, model} = this;
+    return <View {...criteria} model={model}/>
   }
 
 }

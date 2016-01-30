@@ -5,22 +5,27 @@ import Link from '../components/link';
 
 class GameView extends View {
 
+  get serversUrl() {
+    return `${this.url}/servers`;
+  }
+
   renderTitle() {
-    let model = this.model;
-    if(model.logoUrl) {
-      return <img src={model.logoUrl} alt={model.displayName} title={model.displayName}/>
+    const {model} = this;
+    const {logoUrl, displayName} = model;
+    if(logoUrl) {
+      return <img src={logoUrl} alt={displayName} title={displayName}/>
     }
-    return model.displayName;
+    return displayName;
   }
 
   render() {
-    let model = this.model;
-    return <section className={this.classNames}>
+    const {classNames, serversUrl} = this;
+    return <section className={classNames}>
       <header>
         <h3>{this.renderTitle()}</h3>
       </header>
       <footer>
-        <Link to={`${this.url}/servers`} label='servers'/>
+        <Link to={serversUrl} label='servers'/>
       </footer>
     </section>
   }

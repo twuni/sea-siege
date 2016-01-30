@@ -34,10 +34,9 @@ class Route extends Component {
   }
 
   get breadcrumb() {
-    let url = this.url;
-    let label = this.title;
-    if(url && label) {
-      return <Link key={url} to={url} label={label}/>
+    const {title, url} = this;
+    if(url && title) {
+      return <Link key={url} to={url} label={title}/>
     }
     return undefined;
   }
@@ -59,7 +58,7 @@ class Route extends Component {
   }
 
   get title() {
-    let className = this.constructor.name;
+    const className = this.constructor.name;
     return className.replace(/^(.+)Route$/, '$1');
   }
 

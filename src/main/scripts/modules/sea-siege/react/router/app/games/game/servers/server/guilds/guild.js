@@ -1,3 +1,3 @@
-import LazyRoute from '../../../../../../lazy-route';
+import {ModelRoute} from '../../../../../../lazy-route';
 
-export default new LazyRoute(':guildId', 'game/server/guild');
+export default new ModelRoute('guild');

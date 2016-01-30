@@ -10,13 +10,13 @@ class Cache {
   }
 
   fetch(key) {
-    let entry = this.__entries[key];
+    const entry = this.__entries[key];
     if(entry === undefined) {
       return undefined;
     }
-    let value = entry[0];
-    let expires = entry[1];
-    let now = Date.now();
+    const value = entry[0];
+    const expires = entry[1];
+    const now = Date.now();
     if(expires < now) {
       this.invalidate(key);
       return undefined;
@@ -33,10 +33,10 @@ class Cache {
   }
 
   save(key, value, lifespan) {
-    let now = Date.now();
-    let effectiveLifespan = 1000 * (lifespan || this.defaultLifespan);
-    let expires = now + effectiveLifespan;
-    let entry = [value, expires];
+    const now = Date.now();
+    const effectiveLifespan = 1000 * (lifespan || this.defaultLifespan);
+    const expires = now + effectiveLifespan;
+    const entry = [value, expires];
     this.__entries[key] = entry;
     return value;
   }

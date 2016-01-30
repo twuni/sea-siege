@@ -14,7 +14,7 @@ class IconLink extends Component {
 
   render() {
 
-    let linkProps = _.omit(this.props, 'name');
+    const linkProps = _.omit(this.props, 'name');
 
     return <Link {...linkProps}>
       <Icon name={this.props.name}/>

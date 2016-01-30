@@ -1,5 +1,5 @@
-import LazyRoute from '../../lazy-route';
+import {ModelRoute} from '../../lazy-route';
 
-export default new LazyRoute(':cardId', 'card', {
+export default new ModelRoute('card', {
   index: 'card/view'
 });

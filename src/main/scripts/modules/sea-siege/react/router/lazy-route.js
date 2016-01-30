@@ -8,7 +8,7 @@ const lazyComponent = function(path) {
   };
 };
 
-class LazyRoute {
+class Route {
 
   constructor(path, component, {index, children} = {}) {
     this.path = path;
@@ -21,4 +21,24 @@ class LazyRoute {
 
 }
 
-export default LazyRoute;
+class ModelRoute extends Route {
+
+  constructor(modelType, ...args) {
+    super(`:${modelType}Id`, modelType, ...args);
+  }
+
+}
+
+class CollectionRoute extends Route {
+
+  constructor(modelType, itemComponent) {
+    super(modelType, modelType, {
+      index: `${modelType}/index`,
+      children: [itemComponent]
+    });
+  }
+
+}
+
+export {ModelRoute, CollectionRoute};
+export default Route;

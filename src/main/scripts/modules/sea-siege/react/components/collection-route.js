@@ -30,7 +30,7 @@ class CollectionRoute extends Route {
   }
 
   load() {
-    let Model = this.constructor.modelClass;
+    const Model = this.constructor.modelClass;
     if(Model) {
       return Model.find(this.criteria);
     }
@@ -38,11 +38,12 @@ class CollectionRoute extends Route {
   }
 
   render() {
-    let View = this.constructor.viewClass;
-    return <ul className={this.classNames}>
-      {_.compact(_.map(this.collection, (model) => {
+    const View = this.constructor.viewClass;
+    const {classNames, collection, criteria} = this;
+    return <ul className={classNames}>
+      {_.compact(_.map(collection, (model) => {
         if(View) {
-          return <View key={model.id} {...this.criteria} model={model}/>
+          return <View key={model.id} {...criteria} model={model}/>
         }
         return undefined;
       }))}
